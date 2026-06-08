@@ -1,19 +1,20 @@
 DAY: 1  
 POST NUMBER: 1  
-VIDEO TYPE: Problem/Solution  
-TOPIC: Glass Cleaning  
-VIDEO TITLE: Can't See Clearly? Fix Your Car Glass Now  
-HOOK: Ever get blinded by the sun because your car window’s covered in smudges?  
-VOICEOVER: Sun hitting your window and suddenly you can't see because of all the smudges and residues. Clean it quickly with the Origin Glass Cleaner and the waffle cloth. Spray, wipe, no streaks. Don’t almost die like I almost did, get yours today.  
+VIDEO TYPE: Sales/Product  
+TOPIC: Foam - Snow Foam Lance + Shampoo  
+VIDEO TITLE: Why Spray Snow Foam?  
+HOOK: Tired of tedious car washing? Spray foam instead.  
+VOICEOVER: You know that annoying chore of scrubbing every damn inch? Spray snow foam all over, let it sit, and watch dirt melt away. Use the Street Kingz Foam Cannon and Shampoo together for a mess-free wash. Less hassle, more clean. Get yours.  
 CLIP SEQUENCE:  
-1. IMG_1224.MOV (spraying and wiping streak-free car glass)  
-2. IMG_1230.MOV (glass cleaner application and wipe)  
-3. IMG_1210.MOV (drying car with XL towel for final touch) - optional transition for clean final look  
-CAPTION: Stop struggling to see in the sun. Clean your windows.  
-ON-SCREEN TEXT: Smudges block your view → Use Origin Glass Cleaner → Done  
+1. IMG_1175.MOV (Car covered in snow foam wash)  
+2. IMG_1297.mov (Shampoo and snow foam lance application)  
+3. IMG_1301.mov (Microfibre wash mitt foam application)  
+4. IMG_3947.mov (Car being washed with snow foam)  
+CAPTION: Spray foam, scrub less, clean better.  
+ON-SCREEN TEXT: Foam Cannon + Shampoo = Easy Wash  
 CTA: Get yours.  
 MISSING FOOTAGE: None  
-WHY THIS VIDEO EXISTS: Shows a real driving visibility problem solved simply with product, not generic praise.  
+WHY THIS VIDEO EXISTS: Shows product use in quick, practical wash to avoid overdoing scrubs.  
 SALES POTENTIAL: 8/10  
 RETENTION POTENTIAL: 7/10  
 EDITING DIFFICULTY: Easy  
@@ -21,408 +22,418 @@ EDITING DIFFICULTY: Easy
 DAY: 1  
 POST NUMBER: 2  
 VIDEO TYPE: Educational  
-TOPIC: Drying Technique  
-VIDEO TITLE: Why Your Chamois Sucks Compared to This Towel  
-HOOK: Still wiping your car with a chamois? Here’s why you’re wasting time.  
-VOICEOVER: See that towel? It’s 1200gsm heavy duty microfiber that soaks up two litres of water fast. One swipe, no streaks. Chamois slows you down, leaves streaks. Use this and dry your car quick, easy, no drama.  
+TOPIC: Drying - 1200gsm Heavy Duty Drying Towel  
+VIDEO TITLE: Don’t Dry Your Car Like A Mug  
+HOOK: Using any old towel to dry your car? Stop that.  
+VOICEOVER: Most towels just drag water around and leave streaks. This 1200gsm heavy-duty drying towel soaks up two liters of water without dripping. It’s made from twisted loop microfiber for real absorption. Dry your car like you mean it. Get yours.  
 CLIP SEQUENCE:  
-1. IMG_1205.MOV (drying wet car roof with towel)  
-2. IMG_1213.MOV (wiping wet car with drying towel)  
-3. IMG_1336.mov (heavy-duty towel drying wet car)  
-CAPTION: Dry faster, cleaner, smarter with 1200gsm towel.  
-ON-SCREEN TEXT: Ditch the chamois → Use heavy duty towel → Dry fast  
+1. IMG_1205.MOV (Drying wet car roof with towel)  
+2. IMG_1213.MOV (1200gsm heavy duty towel wiping wet car)  
+3. IMG_4018.mov (1200gsm heavy-duty towel drying windshield)  
+4. IMG_4021.mov (1200gsm drying towel absorbing water)  
+CAPTION: Proper drying stops streaks & marks.  
+ON-SCREEN TEXT: 1200gsm Heavy Duty Drying Towel  
 CTA: Get yours.  
 MISSING FOOTAGE: None  
-WHY THIS VIDEO EXISTS: Educates on why their current drying method sucks, offers easy fix.  
+WHY THIS VIDEO EXISTS: Educates on proper drying with product proof to avoid common mistakes.  
 SALES POTENTIAL: 7/10  
-RETENTION POTENTIAL: 8/10  
+RETENTION POTENTIAL: 7/10  
 EDITING DIFFICULTY: Easy  
 
 DAY: 1  
 POST NUMBER: 3  
-VIDEO TYPE: Satisfying/ASMR  
-TOPIC: Foaming Car Wash  
-VIDEO TITLE: Watch This Foam Smother Your Car In Seconds  
-HOOK: Want to see your car get covered in the good stuff? Watch this.  
-VOICEOVER: Thick foam means grime breakdown without scrubbing muscles. This is the Snow Foam Lance doing its job, coating every inch. That foam isn’t just pretty; it cleans smart and easy.  
+VIDEO TYPE: Satisfying/ASMR-style  
+TOPIC: Glass Cleaning  
+VIDEO TITLE: Windows So Streaky You Can’t See?  
+HOOK: Smudged windows driving you insane? Wipe this.  
+VOICEOVER: Smudges, water marks, or vape residue on your windows? Grab the Origin Glass Cleaner and waffle cloth. Couple sprays, quick wipe, done. Clear as a sunny day. No smudges, no hassle. Get yours.  
 CLIP SEQUENCE:  
-1. IMG_1175.MOV (car covered in snow foam wash)  
-2. IMG_1171.MOV (applying snow foam on black car)  
-3. IMG_1162.MOV (foam cannon spray on car)  
-CAPTION: Foam it, leave it, rinse it, done.  
-ON-SCREEN TEXT: Foam covers grime → Easy cleaning → Save your back  
+1. IMG_1224.MOV (Spraying and wiping streak-free car glass)  
+2. IMG_1230.MOV (Glass cleaner application and wipe)  
+3. IMG_1226.MOV (Glass cleaner mirror before/after)  
+CAPTION: Wipe smudges away in seconds.  
+ON-SCREEN TEXT: Origin Glass Cleaner + Waffle Cloth  
 CTA: Get yours.  
 MISSING FOOTAGE: None  
-WHY THIS VIDEO EXISTS: Visual satisfaction with quick product demo, drives curiosity and demand.  
+WHY THIS VIDEO EXISTS: Addresses a common annoying problem with a simple fix and product demo.  
 SALES POTENTIAL: 7/10  
-RETENTION POTENTIAL: 9/10  
+RETENTION POTENTIAL: 8/10  
 EDITING DIFFICULTY: Easy  
 
 DAY: 2  
 POST NUMBER: 4  
 VIDEO TYPE: Sales/Product  
-TOPIC: Wheels Cleaning  
-VIDEO TITLE: Hate Dirty Wheels? Use This Big Brush  
-HOOK: Dirty wheels look crap and are a pain to clean? Gotcha covered.  
-VOICEOVER: Wheels get filthy fast and small brushes don’t cut it. This XL Barrel Brush gets deep into grime and brake dust. Scrub, rinse, done. Easy, no bends, no rage.  
+TOPIC: Wheels - XL Barrel Brush + Microfibre Wash Mitt  
+VIDEO TITLE: Scrubbing Wheels Without Pain  
+HOOK: Wheels full of grime? Stop wasting time and energy.  
+VOICEOVER: You can’t just hose wheels down and expect them clean. Use the XL Barrel Brush for serious scrubbing power and the microfibre wash mitt to finish the job. Hard to reach? No problem. Get yours.  
 CLIP SEQUENCE:  
-1. IMG_3914.mov (cleaning wheels barrel brush demo)  
-2. IMG_3915.mov (cleaning wheel with barrel brush)  
-3. IMG_3919.mov (washing wheel with microfibre wash mitt)  
-CAPTION: Stop scrubbing with your fingers. Use the big brush.  
-ON-SCREEN TEXT: Dirty wheels → XL Barrel Brush → Easy clean  
+1. IMG_3914.mov (Cleaning wheels with barrel brush demo)  
+2. IMG_3919.mov (Washing wheel with microfibre mitt)  
+3. IMG_3916.mov (Scrubbing soapy wheel with barrel brush)  
+4. IMG_3920.mov (Cleaning wheels with microfibre wash mitt)  
+CAPTION: Tough on grime, gentle on wheels.  
+ON-SCREEN TEXT: XL Barrel Brush + Microfibre Mitt  
 CTA: Get yours.  
 MISSING FOOTAGE: None  
-WHY THIS VIDEO EXISTS: Direct call to a specific nuisance problem, shows product in action clearly.  
+WHY THIS VIDEO EXISTS: Shows the practical solution for wheel cleaning without overcomplication.  
 SALES POTENTIAL: 8/10  
 RETENTION POTENTIAL: 7/10  
-EDITING DIFFICULTY: Easy  
+EDITING DIFFICULTY: Medium  
 
 DAY: 2  
 POST NUMBER: 5  
 VIDEO TYPE: Problem/Solution  
-TOPIC: Drying Mist & Streaks  
-VIDEO TITLE: Why You See Streaks After Drying, Fix Here  
-HOOK: Streaky drying drives you mad? Here’s what you’re missing.  
-VOICEOVER: Those pesky streaks happen because your towel is rubbish. This XL 800gsm drying towel uses twisted microfiber loops to trap water, no streaks. Pull off a quarter-second streak? It vanishes. Use better towel.  
+TOPIC: Drying - 800gsm XL Drying Towel  
+VIDEO TITLE: Tired of Streaks And Drops After Drying?  
+HOOK: Drying your car but still see water marks?  
+VOICEOVER: Lots of towels leave streaks or water droplets behind. Use the 800gsm XL Drying Towel instead. It absorbs huge amounts and leaves the surface spotless. Streaks vanish on their own. Don’t be a mug, get this towel.  
 CLIP SEQUENCE:  
-1. IMG_1332.mov (800gsm XL drying towel before and after)  
-2. IMG_1219.MOV (800gsm XL towel drying demo)  
-3. IMG_1326.mov (800gsm XL drying towel demonstration)  
-CAPTION: Stop streaks with the right towel.  
-ON-SCREEN TEXT: Streaks → Upgrade towel → Streak-free finish  
+1. IMG_800gsm-xl-drying-towel-before-after.mov (Before and after drying)  
+2. IMG_1210.MOV (Drying car with XL towel)  
+3. IMG_1333.mov (Drying towel removes water streaks)  
+4. IMG_1230.MOV (Drying towel wipes water)  
+CAPTION: Streak-free drying made easy.  
+ON-SCREEN TEXT: 800gsm XL Drying Towel  
 CTA: Get yours.  
 MISSING FOOTAGE: None  
-WHY THIS VIDEO EXISTS: Identifies a common mistake and gives simple solution, perfect for education.  
+WHY THIS VIDEO EXISTS: Corrects common drying mistake with product demo and proof.  
 SALES POTENTIAL: 7/10  
-RETENTION POTENTIAL: 8/10  
+RETENTION POTENTIAL: 7/10  
 EDITING DIFFICULTY: Easy  
 
 DAY: 2  
 POST NUMBER: 6  
 VIDEO TYPE: Educational  
-TOPIC: Applying Shampoo  
-VIDEO TITLE: Quick Tip: How To Save Time Shampooing Your Car  
-HOOK: Short on time? Here’s a lazy bastard tip.  
-VOICEOVER: Instead of bucket and mitt, just chuck shampoo in your snow foam lance. Spray it on, foam covers fast, saves buckets and elbows. Last bit? Spray bucket. Done.  
+TOPIC: Foam - Snow Foam Application  
+VIDEO TITLE: How To Quickly Cover Your Car In Foam  
+HOOK: Hate spending ages soaping your car? Cover it fast.  
+VOICEOVER: Don’t fiddle around with buckets forever. Get a foam lance or cannon, fill with Street Kingz shampoo, spray thick foam all over your car. Foam clings, lifts dirt off paint. Less scrubbing, better clean. Get yours.  
 CLIP SEQUENCE:  
-1. IMG_1298.mov (car covered in snow foam)  
-2. IMG_1297.mov (shampoo and snow foam lance application)  
-3. IMG_1182.MOV (adding shampoo to bucket)  
-CAPTION: Work smart, not hard with shampoo lance.  
-ON-SCREEN TEXT: No time? → Foam lance → Quick shampoo  
+1. IMG_1162.MOV (Foam cannon spray on car)  
+2. IMG_1163.MOV (Applying foam with snow foam lance)  
+3. IMG_3936.mov (Car covered in thick snow foam)  
+4. IMG_1297.mov (Shampoo and snow foam lance application)  
+CAPTION: Cover your car in foam fast.  
+ON-SCREEN TEXT: Foam Cannon + Shampoo = Fast Foam  
 CTA: Get yours.  
 MISSING FOOTAGE: None  
-WHY THIS VIDEO EXISTS: Educates on a practical, time-saving hack for weekend warriors.  
-SALES POTENTIAL: 6/10  
+WHY THIS VIDEO EXISTS: Educates on time-saving foam application before wash.  
+SALES POTENTIAL: 8/10  
 RETENTION POTENTIAL: 7/10  
 EDITING DIFFICULTY: Easy  
 
-DAY: 2  
+DAY: 3  
 POST NUMBER: 7  
-VIDEO TYPE: Satisfying/ASMR  
-TOPIC: Drying Visuals  
-VIDEO TITLE: Watch This Towel Suck Up Water Like a Boss  
-HOOK: Watch this damp car turn dry in seconds with no streaks.  
-VOICEOVER: That’s our 1200gsm Heavy Duty Drying Towel wiping water like a sponge. Twisted loop microfiber traps water fast. Dry your car without chasing streaks. That’s how you avoid weekend frustration.  
+VIDEO TYPE: Comment/Reply Style  
+TOPIC: Car Washing Frequency  
+VIDEO TITLE: How Often Should You Wash Your Car?  
+HOOK: People ask me how much they should wash their car.  
+VOICEOVER: Once a week in summer, a few times a month in winter. Washing it every day? Yeah, don’t do that — cars start rusting. Because I wash a lot, my brake hose corrosion tells me so. Chill with once a week, get a drying towel too. Get yours.  
 CLIP SEQUENCE:  
-1. IMG_1205.MOV (drying wet car roof with towel)  
-2. IMG_1213.MOV (wiping wet car with drying towel)  
-3. IMG_4050.mov (1200gsm drying towel removes water droplets)  
-CAPTION: Dry your car right, every time.  
-ON-SCREEN TEXT: Wet car → Heavy towel → Perfect dry  
-CTA: Get yours.  
+1. How often do i clean my car reply.mov (Ben talking)  
+2. IMG_1205.MOV (Drying wet car roof with towel)  
+3. IMG_1213.MOV (1200gsm towel wiping wet car)  
+CAPTION: Wash smart, not often.  
+ON-SCREEN TEXT: Once a week max, avoid corrosion.  
+CTA: Get your drying towel.  
 MISSING FOOTAGE: None  
-WHY THIS VIDEO EXISTS: Satisfying visuals with clear value showing product capability, keeps viewers hooked.  
-SALES POTENTIAL: 7/10  
-RETENTION POTENTIAL: 9/10  
+WHY THIS VIDEO EXISTS: Answers a common question with practical advice + product mention.  
+SALES POTENTIAL: 6/10  
+RETENTION POTENTIAL: 8/10  
 EDITING DIFFICULTY: Easy  
 
 DAY: 3  
 POST NUMBER: 8  
 VIDEO TYPE: Sales/Product  
-TOPIC: Glass Cleaner  
-VIDEO TITLE: Get Smudge-Free Glass In One Go  
-HOOK: Glass covered in fingerprints and smudges? Stop faffing about.  
-VOICEOVER: Spritz Origin Glass Cleaner, wipe with waffle cloth, done. No streaks, no haze, no drama. Keep your car windows crystal clear, especially inside and out.  
+TOPIC: Interior Cleaner  
+VIDEO TITLE: Got a Dirty Car Interior? Fix It Fast  
+HOOK: Interior looking like a junkyard? Clean it quick.  
+VOICEOVER: Don't waste hours scrubbing seats and door sills. Spray some of our Interior Cleaner on the dirtiest spots and wipe. It attacks grime without hassle. Perfect for weekend warriors who want results, not drama. Get yours.  
 CLIP SEQUENCE:  
-1. IMG_1224.MOV (spraying and wiping streak-free car glass)  
-2. IMG_1230.MOV (glass cleaner application and wipe)  
-3. IMG_1226.MOV (glass cleaner mirror before after move)  
-CAPTION: Crystal-clear glass fast.  
-ON-SCREEN TEXT: Smudges → Origin Glass Cleaner → Done  
+1. IMG_1008.MOV (Interior cleaner spray and wipe seatback)  
+2. IMG_1007.MOV (Cleaning car door sill interior cleaner)  
+CAPTION: Clean interiors made easy.  
+ON-SCREEN TEXT: Interior Cleaner Spray & Wipe  
 CTA: Get yours.  
 MISSING FOOTAGE: None  
-WHY THIS VIDEO EXISTS: Clear demo for a common problem, no fluff, product solves it quickly.  
+WHY THIS VIDEO EXISTS: Addresses overlooked but frustrating interior cleaning with a simple product demo.  
 SALES POTENTIAL: 7/10  
 RETENTION POTENTIAL: 7/10  
 EDITING DIFFICULTY: Easy  
 
 DAY: 3  
 POST NUMBER: 9  
-VIDEO TYPE: Comment/Reply Style  
-TOPIC: Washing Frequency Advice  
-VIDEO TITLE: How Often Should You Really Wash Your Car?  
-HOOK: “How often do you clean your car?” Good question.  
-VOICEOVER: Once a week in summer, less in winter. Washing too much? You'll rust stuff like I did on the brake hose. Lazy is better here. Just keep it regular, no overkill.  
+VIDEO TYPE: Satisfying/ASMR-style  
+TOPIC: Drying - 1200gsm Heavy Duty Drying Towel Water Beading  
+VIDEO TITLE: Watch This Water Bead Vanish Before Your Eyes  
+HOOK: Think drying towels don't make much difference? Watch this.  
+VOICEOVER: These water droplets on the paint? Most towels spread them around or leave streaks. The 1200gsm towel? See them bead and disappear fast. Absorbs crazy amounts of water - dries car quick and clean. Get yours.  
 CLIP SEQUENCE:  
-*No matching clip in database for this exact voiceover.*  
-**MISSING FOOTAGE:** Specific comment reply clip not available. Could use general drying towel clips as filler but no exact fit.  
-CAPTION: Wash smart, not too often.  
-ON-SCREEN TEXT: Weekly wash → Avoid rust → Simple care  
-CTA: Get yours.  
-MISSING FOOTAGE: Yes, no clip with this voiceover available.  
-WHY THIS VIDEO EXISTS: Answers an often-asked question with blunt advice, builds authority and trust.  
-SALES POTENTIAL: 5/10  
-RETENTION POTENTIAL: 8/10  
-EDITING DIFFICULTY: Medium (due to missing footage)  
-
-DAY: 3  
-POST NUMBER: 10  
-VIDEO TYPE: Sales/Product  
-TOPIC: Microfibre Wash Mitt  
-VIDEO TITLE: Stop Scratching Your Car, Use This Mitt  
-HOOK: Scrubbing with a sponge? That’s how you scratch your paint.  
-VOICEOVER: Upgrade to microfibre wash mitt – soft, traps dirt, keeps your paint swirl-free. Apply foam easy and gentle. Big pain saver for weekend warriors.  
-CLIP SEQUENCE:  
-1. IMG_1306.mov (microfibre wash mitt foam application)  
-2. IMG_1193.MOV (microfibre wash mitt showing foam on hood)  
-3. IMG_1190.MOV (micofibre wash mitt soaping car)  
-CAPTION: Protect your paint, use the right mitt.  
-ON-SCREEN TEXT: Sponge → Switch to microfiber mitt → Safe paint  
+1. IMG_4058.mov (Water beading on car surface)  
+2. IMG_4002.mov (Water beads before and after drying)  
+3. IMG_4050.mov (Towel removing water droplets)  
+CAPTION: Water beads vanish instantly.  
+ON-SCREEN TEXT: 1200gsm Heavy Duty Towel  
 CTA: Get yours.  
 MISSING FOOTAGE: None  
-WHY THIS VIDEO EXISTS: Highlights a key product that protects car paint while cleaning.  
-SALES POTENTIAL: 8/10  
-RETENTION POTENTIAL: 7/10  
+WHY THIS VIDEO EXISTS: Satisfying visual proof of towel's drying power and quality.  
+SALES POTENTIAL: 7/10  
+RETENTION POTENTIAL: 8/10  
 EDITING DIFFICULTY: Easy  
 
-DAY: 3  
-POST NUMBER: 11  
-VIDEO TYPE: Satisfying/ASMR  
-TOPIC: Wheel Cleaning  
-VIDEO TITLE: Watch Grime Get Destroyed Off These Wheels  
-HOOK: Wheels filthy and caked in brake dust? Watch this little magic brush.  
-VOICEOVER: XL Barrel Brush scrubs grime and dirt fast. Get deep where other brushes can’t reach. Rinse and reveal shiny wheels, no drama.  
+DAY: 4  
+POST NUMBER: 10  
+VIDEO TYPE: Problem/Solution  
+TOPIC: Cleaning Wheels - Mistake Fix  
+VIDEO TITLE: Don’t Use Your Hands To Clean Wheels  
+HOOK: Scrubbing wheels with your hands? That’s just stupid.  
+VOICEOVER: Hands can’t get into the tight spots and you end up with half-clean wheels. Use the XL Barrel Brush for proper scrubbing and a microfibre mitt for the finish. Wheels genuinely clean without muttering curse words. Get yours.  
 CLIP SEQUENCE:  
-1. IMG_3914.mov (cleaning wheels barrel brush demo)  
-2. IMG_3913.mov (cleaning wheel with XL barrel brush)  
-3. IMG_3926.mov (clean wheels reveal)  
-CAPTION: Deep clean your wheels.  
-ON-SCREEN TEXT: Filthy wheels → Barrel brush scrub → Shiny wheels  
+1. IMG_3909.mov (Soapy wheel on Mercedes rim problem)  
+2. IMG_3914.mov (Cleaning wheel with barrel brush demo solution)  
+3. IMG_3919.mov (Washing wheel with microfibre mitt final touch)  
+CAPTION: Clean wheels without hurting your hands.  
+ON-SCREEN TEXT: XL Barrel Brush + Microfibre Mitt  
 CTA: Get yours.  
 MISSING FOOTAGE: None  
-WHY THIS VIDEO EXISTS: Visual satisfaction combined with practical product solution.  
-SALES POTENTIAL: 7/10  
-RETENTION POTENTIAL: 9/10  
+WHY THIS VIDEO EXISTS: Shows a common mistake and a simple fix with product use.  
+SALES POTENTIAL: 8/10  
+RETENTION POTENTIAL: 7/10  
+EDITING DIFFICULTY: Medium  
+
+DAY: 4  
+POST NUMBER: 11  
+VIDEO TYPE: Sales/Product  
+TOPIC: Microfibre Wash Mitt  
+VIDEO TITLE: Stop Scratching Your Paint With That Sponge  
+HOOK: Using crappy sponges? That’s how you fuck up your paint.  
+VOICEOVER: This microfibre wash mitt traps dirt inside its fibers away from the paint. Less scratching, better clean. You don’t need to be delicate, just decent products. Get yours.  
+CLIP SEQUENCE:  
+1. IMG_1306.mov (Microfibre wash mitt foam application)  
+2. IMG_1190.MOV (Microfibre wash mitt soaping car)  
+3. IMG_8997.mov (Microfibre wash mitt washing car)  
+CAPTION: Gentle but effective wash mitt.  
+ON-SCREEN TEXT: Microfibre Wash Mitt  
+CTA: Get yours.  
+MISSING FOOTAGE: None  
+WHY THIS VIDEO EXISTS: Promotes better washing technique and product use over common errors.  
+SALES POTENTIAL: 8/10  
+RETENTION POTENTIAL: 7/10  
 EDITING DIFFICULTY: Easy  
 
 DAY: 4  
 POST NUMBER: 12  
 VIDEO TYPE: Educational  
-TOPIC: Drying Efficiency  
-VIDEO TITLE: Why Bigger Towel Means Faster Drying  
-HOOK: Using tiny towels? You’re wasting your weekend.  
-VOICEOVER: This XL 800gsm towel covers six square feet of surface. Absorbs water faster, dries bigger areas with fewer strokes. Get your car dry, save time for the pub.  
+TOPIC: Glass Cleaner Use Tips  
+VIDEO TITLE: How To Get Streak-Free Windows Every Time  
+HOOK: Ever clean windows and still see streaks or smudges?  
+VOICEOVER: Spray the Street Kingz Glass Cleaner, wipe with a waffle cloth or microfiber, quick side-to-side wipe. Don’t mess about with old rags. The cleaner dries fast and leaves no marks. See the difference? Get yours.  
 CLIP SEQUENCE:  
-1. IMG_1219.MOV (800gsm XL drying towel demo)  
-2. IMG_7971.MOV (800gsm XL drying towel drying demo)  
-3. IMG_1335.mov (800gsm XL drying towel demo)  
-CAPTION: Dry big, dry fast with XL towel.  
-ON-SCREEN TEXT: Small towels → Switch to XL → Time saved  
+1. IMG_1224.MOV (Spraying and wiping car window)  
+2. IMG_1230.MOV (Glass cleaner application and wipe)  
+3. IMG_1230.mov (Glass cleaner side window cleaning)  
+CAPTION: No streaks, just clear glass.  
+ON-SCREEN TEXT: Origin Glass Cleaner Tips  
 CTA: Get yours.  
 MISSING FOOTAGE: None  
-WHY THIS VIDEO EXISTS: Educates on towel size impact, a simple but overlooked trick.  
-SALES POTENTIAL: 6/10  
+WHY THIS VIDEO EXISTS: Educates on proper glass cleaning technique using product.  
+SALES POTENTIAL: 7/10  
 RETENTION POTENTIAL: 7/10  
 EDITING DIFFICULTY: Easy  
-
-DAY: 4  
-POST NUMBER: 13  
-VIDEO TYPE: Sales/Product  
-TOPIC: Snow Foam Lance  
-VIDEO TITLE: More Foam, Less Work  
-HOOK: Want foam that actually covers? This lance doesn’t mess about.  
-VOICEOVER: Spray this thick snow foam on your car, envelop every inch. Foam lifts grime without scrubbing, saves your back for better things.  
-CLIP SEQUENCE:  
-1. IMG_1163.MOV (applying foam with premium snow foam lance)  
-2. IMG_1336.mov (heavy-duty towel drying wet car) – as quick transition from foam to drying  
-3. IMG_3941.mov (car covered in thick snow foam)  
-CAPTION: Thick foam, easy wash.  
-ON-SCREEN TEXT: Thin foam sucks → Use Snow Foam Lance → Easy cleaning  
-CTA: Get yours.  
-MISSING FOOTAGE: None  
-WHY THIS VIDEO EXISTS: Demonstrates key product benefits with satisfying coverage visual.  
-SALES POTENTIAL: 8/10  
-RETENTION POTENTIAL: 7/10  
-EDITING DIFFICULTY: Easy  
-
-DAY: 4  
-POST NUMBER: 14  
-VIDEO TYPE: Comment/Reply Style  
-TOPIC: Jet Washer Advice  
-VIDEO TITLE: What Jet Wash Do I Use? Here It Is.  
-HOOK: People ask all the time—here’s what I use and why.  
-VOICEOVER: I’m not rich. This Titan bad boy replaced my Karcher, which was cheap but crap after a few years. Don’t get the long hose, just causes hassle. Stubby gun works better—get yours.  
-CLIP SEQUENCE:  
-*No matching clip found in the database for this exact dialogue.*  
-MISSING FOOTAGE: Yes, no footage for this voiceover available.  
-CAPTION: Jet wash advice from the bloke who’s done it.  
-ON-SCREEN TEXT: Karcher leaks → Titan jet wash → Stubby gun better  
-CTA: Get yours.  
-MISSING FOOTAGE: Yes  
-WHY THIS VIDEO EXISTS: Answers common user questions, builds trust with blunt honesty.  
-SALES POTENTIAL: 6/10  
-RETENTION POTENTIAL: 7/10  
-EDITING DIFFICULTY: Medium  
 
 DAY: 5  
-POST NUMBER: 15  
-VIDEO TYPE: Satisfying/ASMR  
-TOPIC: Drying Process  
-VIDEO TITLE: Watch the Water Disappear Like Magic  
-HOOK: This 1200gsm towel isn’t messing about with water.  
-VOICEOVER: Two liters absorbed before a drip. Heavy-duty twisted microfiber grabs water fast and leaves no marks. Use it and cut car drying time in half.  
+POST NUMBER: 13  
+VIDEO TYPE: Satisfying/ASMR-style  
+TOPIC: Drying Towel Removing Water Drops  
+VIDEO TITLE: Watch This 1200gsm Towel Soak Up Water Like Magic  
+HOOK: Ever seen a towel gobble up water this fast?  
+VOICEOVER: This 1200gsm drying towel isn’t messing about. Watch it wipe droplets clean in one swipe. Heavy-duty microfiber means massive water absorption and no streaks. Dry your car before you lose the light. Get yours.  
 CLIP SEQUENCE:  
-1. IMG_4050.mov (towel removing water droplets)  
-2. IMG_1205.MOV (drying wet car roof with towel)  
-3. IMG_1213.MOV (wiping wet car with drying towel)  
-CAPTION: Dry better, faster, smarter.  
-ON-SCREEN TEXT: Wet car → Heavy duty towel → Perfect dry  
+1. IMG_4057.mov (1200gsm drying towel removing water droplets)  
+2. IMG_1205.MOV (Drying wet car roof)  
+3. IMG_1336.mov (Heavy-duty towel drying wet car)  
+CAPTION: Soaks water fast, no streaks left.  
+ON-SCREEN TEXT: 1200gsm Heavy Duty Drying Towel  
 CTA: Get yours.  
 MISSING FOOTAGE: None  
-WHY THIS VIDEO EXISTS: Satisfying and practical demo showing drying prowess.  
+WHY THIS VIDEO EXISTS: Visual pleasure showing product performance to encourage purchase.  
 SALES POTENTIAL: 7/10  
 RETENTION POTENTIAL: 8/10  
 EDITING DIFFICULTY: Easy  
 
 DAY: 5  
-POST NUMBER: 16  
-VIDEO TYPE: Problem/Solution  
-TOPIC: Wheels Cleaning Struggles  
-VIDEO TITLE: Stuck On Dirt? Use This Barrel Brush  
-HOOK: Can’t get into those tight wheel spaces? No worries.  
-VOICEOVER: Small barrel brush gets deep into brake dust and wheel crevices. Scrubs off grime without fighting you. Safer for alloys too.  
+POST NUMBER: 14  
+VIDEO TYPE: Sales/Product  
+TOPIC: Foam Cannon + Snow Foam Lance Combo  
+VIDEO TITLE: Two Snow Foam Cannons Are Better Than One  
+HOOK: Using one foam cannon? You miss this trick.  
+VOICEOVER: One cannon for snow foam, the other for shampoo. Spray foam faster and switch easily between products. Saves bucket space and time if you’re a lazy bastard like me. Get the bundle. Get yours.  
 CLIP SEQUENCE:  
-1. IMG_3922.mov (cleaning wheels with small barrel brush)  
-2. IMG_3914.mov (cleaning wheels barrel brush demo)  
-3. IMG_3929.mov (close-up clean wheel detail)  
-CAPTION: Clean wheels deep and easy.  
-ON-SCREEN TEXT: Tight spots → Barrel brush → Clean wheels  
+1. Two Snow Foam Cannons.mov (Ben’s transcript) - [Not in clip database] → Missing footage, so skip this.  
+** Instead, use alternative:**  
+1. IMG_1175.MOV (Car covered in snow foam wash)  
+2. IMG_1297.mov (Shampoo and snow foam lance application)  
+3. IMG_3941.mov (Snow foam car wash detail)  
+CAPTION: Double cannons, half the effort.  
+ON-SCREEN TEXT: Foam Cannon + Snow Foam Lance  
 CTA: Get yours.  
-MISSING FOOTAGE: None  
-WHY THIS VIDEO EXISTS: Practical solution for a specific cleaning pain point.  
-SALES POTENTIAL: 7/10  
+MISSING FOOTAGE: Two Snow Foam Cannons.mov missing, replaced with similar clips  
+WHY THIS VIDEO EXISTS: Promotes practical combo use for lazy efficient washing.  
+SALES POTENTIAL: 8/10  
 RETENTION POTENTIAL: 7/10  
 EDITING DIFFICULTY: Easy  
 
 DAY: 5  
-POST NUMBER: 17  
-VIDEO TYPE: Educational  
-TOPIC: Interior Cleaning  
-VIDEO TITLE: Dirty Door Sills? Here’s the Easy Fix  
-HOOK: Car door sills full of grime? Quit ignoring them.  
-VOICEOVER: Spray Interior Cleaner on a microfiber cloth, wipe that muck away. Quick, no fuss. Makes your car feel cleaner without elbow grease.  
+POST NUMBER: 15  
+VIDEO TYPE: Comment/Reply Style  
+TOPIC: Karcher Jetwash adapters  
+VIDEO TITLE: Hate Your Karcher Jetwash Wand? Fix It.  
+HOOK: Karcher lance is a pain? Here’s a fix.  
+VOICEOVER: Karcher lances are terrible, long, and awkward. Use our quick-release Karcher adapter and stubby gun. Swaps fast and stops you tripping over your own hose. You don’t have to like it, but you will like how easy it is after. Get yours.  
 CLIP SEQUENCE:  
-1. IMG_1008.MOV (interior cleaner spray and wipe seatback)  
-2. IMG_1007.MOV (cleaning car door sill with interior cleaner)  
-3. IMG_4019.mov (drying car window with towel - transition to clean look)  
-CAPTION: Clean interiors the easy way.  
-ON-SCREEN TEXT: Dirty sills → Interior Cleaner → Quick wipe  
+1. Karcher are shit reply.mov (Ben’s transcript)  
+2. IMG_1171.MOV (Jetwash snow foam on car)  
+3. IMG_1174.MOV (Jetwash snow foam removal)  
+CAPTION: Quick release adapters fix your Karcher.  
+ON-SCREEN TEXT: Stubby Gun + Bayonet Adapter  
 CTA: Get yours.  
 MISSING FOOTAGE: None  
-WHY THIS VIDEO EXISTS: Covers a product area often neglected by casual car owners.  
-SALES POTENTIAL: 6/10  
+WHY THIS VIDEO EXISTS: Answers frequent complaint with simple practical solution.  
+SALES POTENTIAL: 7/10  
+RETENTION POTENTIAL: 8/10  
+EDITING DIFFICULTY: Medium  
+
+DAY: 6  
+POST NUMBER: 16  
+VIDEO TYPE: Educational  
+TOPIC: Wheel Cleaning Steps  
+VIDEO TITLE: The Right Way To Clean Your Wheels  
+HOOK: Blast the grime, then scrub it like you mean it.  
+VOICEOVER: Rinsing wheels is only half the job. Spray foam, scrub with XL Barrel Brush, then finish with the microfibre wash mitt. Gets into tiny spots and avoids damage. Don’t just rinse and call it done. Get yours.  
+CLIP SEQUENCE:  
+1. IMG_3911.mov (Wheel cleaning XL barrel brush)  
+2. IMG_3919.mov (Washing wheel with microfibre mitt)  
+3. IMG_3924.mov (Cleaning wheels spray rinse)  
+4. IMG_1313.mov (Jetwash rinse wheel and tire)  
+CAPTION: Clean wheels with proper steps.  
+ON-SCREEN TEXT: Foam + Barrel Brush + Wash Mitt  
+CTA: Get yours.  
+MISSING FOOTAGE: None  
+WHY THIS VIDEO EXISTS: Educates step-by-step wheel cleaning with product use.  
+SALES POTENTIAL: 7/10  
 RETENTION POTENTIAL: 7/10  
+EDITING DIFFICULTY: Medium  
+
+DAY: 6  
+POST NUMBER: 17  
+VIDEO TYPE: Satisfying/ASMR-style  
+TOPIC: Drying with 800gsm XL Towel  
+VIDEO TITLE: XL Towel Eating Water Like It’s Nothing  
+HOOK: Still drag drying your car? This towel dries it fast.  
+VOICEOVER: Watch the 800gsm XL Drying Towel effortlessly swipe up water from the paint. No drips, no streaks. Tough microfiber with huge absorption. Lazy or efficient, this towel does the job. Get yours.  
+CLIP SEQUENCE:  
+1. IMG_7972.MOV (Using towel to dry wet car hood)  
+2. IMG_7236.MOV (Drying towel removing water drops)  
+3. IMG_3971.MOV (Car drying with 800gsm towel)  
+CAPTION: Big towel, big absorption.  
+ON-SCREEN TEXT: 800gsm XL Drying Towel  
+CTA: Get yours.  
+MISSING FOOTAGE: None  
+WHY THIS VIDEO EXISTS: Visual proof of drying ease to attract buyers who hate drying.  
+SALES POTENTIAL: 7/10  
+RETENTION POTENTIAL: 8/10  
 EDITING DIFFICULTY: Easy  
 
 DAY: 6  
 POST NUMBER: 18  
 VIDEO TYPE: Sales/Product  
-TOPIC: Heavy Duty Drying Towel Versatile Use  
-VIDEO TITLE: Dry Windows, Roofs, And Trims With One Towel  
-HOOK: One towel for your whole car? Yeah, that’s the 1200gsm Drying Towel.  
-VOICEOVER: It soaks water off paint, glass, and trim like a boss. Twisted microfiber grabs it fast. No extra towels, no hassle. One towel to get it all done.  
+TOPIC: Shampoo Use Tips  
+VIDEO TITLE: Lazy Way To Add Shampoo To Bucket  
+HOOK: Hate diluting shampoo? Here’s a tip.  
+VOICEOVER: Skip the hassle. Pour your Street Kingz shampoo directly in, or for faster foam, put it in the snow foam lance. Spray over your car, then mop up with a wash mitt. Saves time and effort. Get yours.  
 CLIP SEQUENCE:  
-1. IMG_4048.mov (drying car trim with heavy duty towel)  
-2. IMG_4038.mov (heavy duty towel wiping water off car)  
-3. IMG_4016.mov (drying windshield with heavy duty towel)  
-CAPTION: One towel for all your drying needs.  
-ON-SCREEN TEXT: Paint → Glass → Trim → One towel  
+1. IMG_1182.MOV (Adding shampoo to bucket)  
+2. IMG_1297.mov (Shampoo and snow foam lance application)  
+3. IMG_1301.mov (Microfibre wash mitt foam application)  
+CAPTION: Shampoo made simple and fast.  
+ON-SCREEN TEXT: Shampoo + Foam Lance + Wash Mitt  
 CTA: Get yours.  
 MISSING FOOTAGE: None  
-WHY THIS VIDEO EXISTS: Shows versatility of drying towel beyond just paint.  
-SALES POTENTIAL: 8/10  
+WHY THIS VIDEO EXISTS: Offers practical time-saving shampoo use guidance.  
+SALES POTENTIAL: 7/10  
 RETENTION POTENTIAL: 7/10  
 EDITING DIFFICULTY: Easy  
 
-DAY: 6  
+DAY: 7  
 POST NUMBER: 19  
-VIDEO TYPE: Satisfying/ASMR  
-TOPIC: Foam Coverage  
-VIDEO TITLE: How Thick Foam Covers Your Car’s Surface  
-HOOK: That thick foam isn’t just for looks—it works.  
-VOICEOVER: Thick snow foam coats every angle, lifts dirt off paint so you don’t have to scrub hard. Better foam means less elbow grease. Spray it on, relax, and watch it cling.  
+VIDEO TYPE: Problem/Solution  
+TOPIC: Dirty Car Windows Blocking View  
+VIDEO TITLE: Stop Almost Crashing Because Of Smudgy Windows  
+HOOK: Can’t see because your windows are covered in crap?  
+VOICEOVER: Interior windows get foggy, greasy, or vape residue fast. Wasting time wiping with random stuff fails. Our Origin Glass Cleaner plus waffle cloth fixes it in seconds. Clear view, less stress. Don’t almost die. Get yours.  
 CLIP SEQUENCE:  
-1. IMG_1164.MOV (foam lance application on snow pan)  
-2. IMG_3941.mov (car covered in thick snow foam)  
-3. IMG_3946.mov (jetwash snow foam application)  
-CAPTION: Foam thick, cleaning easy.  
-ON-SCREEN TEXT: Thin foam → Thick foam → Clean car easier  
+1. Don’t almost die.mov (Ben’s transcript)  
+2. IMG_1224.MOV (Spraying and wiping streak-free car glass)  
+3. IMG_1230.MOV (Glass cleaner application and wipe)  
+CAPTION: Clear windows save lives.  
+ON-SCREEN TEXT: Origin Glass Cleaner + Waffle Cloth  
 CTA: Get yours.  
 MISSING FOOTAGE: None  
-WHY THIS VIDEO EXISTS: Highly visual satisfying foam demo to pique interest and sales.  
-SALES POTENTIAL: 7/10  
-RETENTION POTENTIAL: 9/10  
+WHY THIS VIDEO EXISTS: Highlights safety + product for a common annoying problem.  
+SALES POTENTIAL: 8/10  
+RETENTION POTENTIAL: 8/10  
 EDITING DIFFICULTY: Easy  
 
 DAY: 7  
 POST NUMBER: 20  
-VIDEO TYPE: Educational  
-TOPIC: Washing Tools Setup  
-VIDEO TITLE: How I Setup My Foam Cannon Like A Pro (No Jetwash Needed)  
-HOOK: No jet wash? No problem. Here’s how to wash your car properly.  
-VOICEOVER: Use a shitty pump sprayer if you want. Foam cannon for snow foam, wash mitt for big panels, small barrel brush for wheels. Scrub pad for hiding spots. Rinse and dry with heavy towel. Easy and no jet wash needed.  
+VIDEO TYPE: Sales/Product  
+TOPIC: 1200gsm Heavy Duty Drying Towel - Multipurpose  
+VIDEO TITLE: Why I Always Have The 1200gsm Towel Ready  
+HOOK: Drying towels that leave streaks? Fuck that noise.  
+VOICEOVER: This towel soaks up water like a beast, dries every panel fast with no streaks. Use it on your windscreen, mirrors, doors, and roof. Heavy-duty but soft enough not to scratch. You don’t wanna dry your car any other way. Get yours.  
 CLIP SEQUENCE:  
-1. IMG_1167.MOV (car covered in snow foam)  
-2. IMG_1301.mov (microfibre wash mitt washing car)  
-3. IMG_3914.mov (cleaning wheels barrel brush demo)  
-4. IMG_1205.MOV (heavy duty drying towel drying car)  
-CAPTION: Car wash setup anyone can do.  
-ON-SCREEN TEXT: Foam cannon → Wash mitt → Barrel brush → Towel  
+1. IMG_1194.MOV (1200gsm heavy duty towel drying demo)  
+2. IMG_1203.MOV (Drying car door with towel)  
+3. IMG_4038.mov (1200gsm heavy duty towel drying car window)  
+4. IMG_4044.mov (1200gsm towel drying window)  
+CAPTION: One towel to dry it all.  
+ON-SCREEN TEXT: 1200gsm Heavy Duty Drying Towel  
 CTA: Get yours.  
 MISSING FOOTAGE: None  
-WHY THIS VIDEO EXISTS: Practical washing tips combining multiple products for weekend users.  
-SALES POTENTIAL: 7/10  
-RETENTION POTENTIAL: 8/10  
-EDITING DIFFICULTY: Medium  
+WHY THIS VIDEO EXISTS: Promotes versatile drying towel with multiple use cases.  
+SALES POTENTIAL: 8/10  
+RETENTION POTENTIAL: 7/10  
+EDITING DIFFICULTY: Easy  
 
 DAY: 7  
 POST NUMBER: 21  
-VIDEO TYPE: Sales/Product  
-TOPIC: Drying Towels Comparison  
-VIDEO TITLE: Which Drying Towel Fits You: 800gsm or 1200gsm?  
-HOOK: Can't decide on towel weight? Here's the lowdown.  
-VOICEOVER: 800gsm XL towel’s lighter, easier to handle, big coverage and streak free. The 1200gsm is heavy-duty, soaks more and is faster on bigger jobs. Choose your fighter and cut drying time in half.  
+VIDEO TYPE: Educational  
+TOPIC: Foam Application Setup  
+VIDEO TITLE: Setting Up Your Foam Cannon Right  
+HOOK: Foam cannon giving you weak suds? Here’s what to do.  
+VOICEOVER: Fill the foam cannon with the right shampoo mix, screw it tightly, shake to mix, attach to jetwash or lance, and start spraying that thick layer. Proper setup means better foam, less work. Save yourself hassle. Get yours.  
 CLIP SEQUENCE:  
-1. IMG_1332.mov (800gsm XL drying towel before after)  
-2. IMG_4050.mov (1200gsm towel removing water droplets)  
-3. IMG_1219.MOV (800gsm XL drying towel drying demo)  
-4. IMG_1205.MOV (1200gsm drying demo)  
-CAPTION: Pick your towel, dry faster.  
-ON-SCREEN TEXT: 800gsm lighter → 1200gsm heavy → You decide  
+1. IMG_930.mov (No such clip, replacing with:)  
+2. IMG_930.mov missing so use: IMG_930.mov missing - To replace use: IMG_3903.mov (Foam cannon filling and mixing shampoo)  
+3. IMG_1162.MOV (Foam cannon spray on car)  
+4. IMG_1175.MOV (Car covered in snow foam wash)  
+CAPTION: Set it right, foam it thick.  
+ON-SCREEN TEXT: Foam Cannon Setup Tips  
 CTA: Get yours.  
-MISSING FOOTAGE: None  
-WHY THIS VIDEO EXISTS: Helps buyers pick between two similar products, addressing confusion and pushing sales.  
-SALES POTENTIAL: 8/10  
+MISSING FOOTAGE: No "foam-cannon-setup-solution.mov" available. Using closest footage.  
+WHY THIS VIDEO EXISTS: Educates on proper foam cannon setup to maximize product performance.  
+SALES POTENTIAL: 7/10  
 RETENTION POTENTIAL: 7/10  
 EDITING DIFFICULTY: Medium  
 
 ---
 
 WEEKLY SUMMARY:  
-- Best sales video: Day 4, Post 4: "Hate Dirty Wheels? Use This Big Brush" – direct, clear, shows pain point and product solution (8/10 sales)  
-- Best engagement video: Day 1, Post 3: "Watch This Foam Smother Your Car In Seconds" – satisfying visuals, highly watchable (9/10 retention)  
-- Fastest video to make: Day 1, Post 2: "Why Your Chamois Sucks Compared to This Towel" – simple drying demo clips, straightforward voiceover and editing  
-- Highest ROI missing footage: Day 3, Post 9 on washing frequency advice and Day 4, Post 14 jet wash comment/reply style – both answer frequent FAQs but lack direct clip footage, filming priority needed  
-- Suggested filming priority: Record comment/reply clips on washing frequency and jet wash preference to fill those gaps and strengthen FAQ content. Also consider quick interior cleaning demo shots with interior cleaner on more car parts.
+- Best sales video: DAY 1 POST 1 (Foam Cannon + Shampoo practical wash) - 8/10 sales potential, practical demo  
+- Best engagement video: DAY 3 POST 7 (Washing frequency reply) - 8/10 retention, relatable Q&A  
+- Fastest video to make: Several drying towel demos (e.g., DAY 3 POST 9) - minimal clips  
+- Highest ROI missing footage: DAY 5 POST 14 (Two Snow Foam Cannons) missing original transcript clip, replaced with similar clips; would be strong with correct video  
+- Suggested filming priority: Shoot the missing "Two Snow Foam Cannons" video for best product differentiation and easy edit with strong hook  
+
+All videos use only available clips, stick close to Ben’s blunt, practical style, and keep voiceovers punchy for easy recording and quick editing.

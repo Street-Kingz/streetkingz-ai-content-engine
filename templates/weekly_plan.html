@@ -1,3 +1,6 @@
+cd ~/StreetKingzAI
+
+cat > templates/weekly_plan.html <<'HTML'
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,24 +13,32 @@
             padding: 30px;
         }
 
-        h1, h2, h3 {
-            color: #ffffff;
-        }
+        h1, h2, h3 { color: #ffffff; }
 
         .button {
             display: inline-block;
             background: #8A1316;
             color: white;
-            padding: 12px 18px;
+            padding: 10px 14px;
             border-radius: 8px;
             text-decoration: none;
             margin-bottom: 20px;
             margin-right: 10px;
+            border: none;
+            cursor: pointer;
+            font-size: 14px;
         }
 
-        .day {
-            margin-bottom: 35px;
+        .message {
+            background: #142314;
+            border: 1px solid #2f6f2f;
+            color: #d6ffd6;
+            border-radius: 10px;
+            padding: 12px;
+            margin-bottom: 20px;
         }
+
+        .day { margin-bottom: 40px; }
 
         .video-grid {
             display: grid;
@@ -44,26 +55,42 @@
 
         .meta {
             color: #aaa;
-            font-size: 14px;
+            font-size: 13px;
             margin-bottom: 12px;
         }
 
-        pre {
-            white-space: pre-wrap;
+        .section {
+            margin-top: 14px;
+        }
+
+        .label {
+            color: #aaa;
+            font-size: 12px;
+            text-transform: uppercase;
+            margin-bottom: 4px;
+        }
+
+        .box {
             background: #0f0f0f;
             border: 1px solid #333;
             border-radius: 8px;
-            padding: 12px;
-            font-size: 13px;
+            padding: 10px;
+            white-space: pre-wrap;
             line-height: 1.4;
-            max-height: 520px;
-            overflow: auto;
+            font-size: 14px;
+        }
+
+        .score-row {
+            display: flex;
+            gap: 10px;
+            margin-top: 12px;
+            color: #ccc;
+            font-size: 13px;
+            flex-wrap: wrap;
         }
 
         @media (max-width: 1000px) {
-            .video-grid {
-                grid-template-columns: 1fr;
-            }
+            .video-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -74,6 +101,10 @@
 
     <h1>Weekly Content Plan</h1>
 
+    {% if message %}
+        <div class="message">{{ message }}</div>
+    {% endif %}
+
     {% if days %}
         {% for day, videos in days.items() %}
         <div class="day">
@@ -82,14 +113,51 @@
             <div class="video-grid">
                 {% for video in videos %}
                 <div class="video-card">
-                    <h3>Video {{ loop.index }}</h3>
                     <div class="meta">
-                        Post {{ video.post_number }} · {{ video.type }} · {{ video.topic }}
+                        Video {{ loop.index }} · Post {{ video.post_number }} · {{ video.type }} · {{ video.topic }}
                     </div>
 
                     <h3>{{ video.title }}</h3>
 
-                    <pre>{{ video.full_text }}</pre>
+                    <div class="section">
+                        <div class="label">Hook</div>
+                        <div class="box">{{ video.hook }}</div>
+                    </div>
+
+                    <div class="section">
+                        <div class="label">Voiceover</div>
+                        <div class="box">{{ video.voiceover }}</div>
+                    </div>
+
+                    <div class="section">
+                        <div class="label">Clips</div>
+                        <div class="box">{{ video.clip_sequence }}</div>
+                    </div>
+
+                    <div class="section">
+                        <div class="label">Caption</div>
+                        <div class="box">{{ video.caption }}</div>
+                    </div>
+
+                    <div class="section">
+                        <div class="label">CTA</div>
+                        <div class="box">{{ video.cta }}</div>
+                    </div>
+
+                    <div class="score-row">
+                        <span>Sales: {{ video.sales }}</span>
+                        <span>Retention: {{ video.retention }}</span>
+                        <span>Difficulty: {{ video.difficulty }}</span>
+                    </div>
+
+                    <div class="section">
+                        <div class="label">Missing Footage</div>
+                        <div class="box">{{ video.missing_footage }}</div>
+                    </div>
+
+                    <div class="section">
+                        <a class="button" href="/create-edit-pack/{{ video.post_number }}">Create Edit Pack</a>
+                    </div>
                 </div>
                 {% endfor %}
             </div>
@@ -101,3 +169,4 @@
 
 </body>
 </html>
+HTML
