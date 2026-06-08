@@ -1,0 +1,13 @@
+filename,start,end,duration,visual_interest_score,product_visibility_score,demo_quality_score,hook_score,reveal_score,action_summary,best_use,reason
+IMG_3926.mov,0.0,2.0,31.3,4,6,1,3,2,Still view of clean wheel,broll,"No action, clear but boring close up"
+IMG_3926.mov,2.0,4.0,31.3,4,6,1,3,2,Still view of clean wheel,broll,"Almost identical to prior section, no action"
+IMG_3926.mov,4.0,6.0,31.3,6,6,5,6,3,Fingers pointing at wheel detail,hook,"Engaging manual interaction, good start for hook"
+IMG_3926.mov,6.0,8.0,31.3,6,6,5,6,3,Hand touching wheel rim,demo,Clear demo showing product detail up close
+IMG_3926.mov,8.0,10.0,31.3,6,6,5,5,3,Hand exploring wheel edges,demo,Good product focus with hand interaction
+IMG_3926.mov,10.0,12.0,31.3,6,6,5,5,3,Finger tracing wheel details,demo,Maintains viewer interest with detailed touch
+IMG_3926.mov,12.0,14.0,31.3,6,6,6,6,4,Finger draws attention on wheel,demo,Engaging pointing draws eye to wheel details
+IMG_3926.mov,14.0,16.0,31.3,6,6,6,6,4,Finger emphasizes wheel features,demo,Good close-up with manual focus
+IMG_3926.mov,16.0,18.0,31.3,6,6,6,6,4,Finger touches rim edge,demo,Maintains attention on product
+IMG_3926.mov,18.0,20.0,31.3,6,6,6,6,4,Finger highlights wheel rim,demo,Clear focus on wheel detail
+IMG_3926.mov,20.0,22.0,31.3,6,6,6,6,4,Finger gesture points key feature,demo,Strong emphasis on product detail
+IMG_3926.mov,22.0,24.0,31.3,6,6,6,6,4,Finger underlines wheel center,demo,Consistent detailed product focus
