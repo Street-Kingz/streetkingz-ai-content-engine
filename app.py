@@ -1,7 +1,7 @@
 import csv
 import os
 import re
-from collections import Counter
+from collections import Counter, defaultdict
 from flask import Flask, render_template, redirect, url_for
 
 from batch_content_generator import (
@@ -25,6 +25,12 @@ app = Flask(__name__)
 
 MASTER_DATABASE = CSV_FILE
 WEEKLY_PLAN_FILE = OUTPUT_FILE
+
+TARGETS = {
+    "problem": 15,
+    "solution": 20,
+    "result": 15,
+}
 
 
 def load_database():
@@ -109,6 +115,93 @@ def parse_weekly_plan(plan_text):
         videos_by_post[post_number] = video
 
     return dict(sorted(days.items())), videos_by_post
+
+
+def build_health_check(clips):
+    category_roles = defaultdict(lambda: Counter())
+
+    ignored_categories = {"", "unknown"}
+
+    for clip in clips:
+        category = (clip.get("category") or "unknown").strip().lower()
+        role = (clip.get("story_role") or "unknown").strip().lower()
+
+        if category in ignored_categories:
+            continue
+
+        category_roles[category][role] += 1
+
+    health_rows = []
+    filming_list = []
+
+    for category, role_counts in sorted(category_roles.items()):
+        problem_count = role_counts.get("problem", 0)
+        solution_count = role_counts.get("solution", 0) + role_counts.get("demo", 0)
+        result_count = role_counts.get("result", 0)
+
+        problem_score = min(problem_count / TARGETS["problem"], 1)
+        solution_score = min(solution_count / TARGETS["solution"], 1)
+        result_score = min(result_count / TARGETS["result"], 1)
+
+        coverage = round(((problem_score + solution_score + result_score) / 3) * 100)
+
+        if coverage >= 80:
+            status = "Good"
+            priority = "Low"
+        elif coverage >= 50:
+            status = "Needs work"
+            priority = "Medium"
+        else:
+            status = "Weak"
+            priority = "High"
+
+        gaps = []
+
+        if problem_count < TARGETS["problem"]:
+            gaps.append(f"{TARGETS['problem'] - problem_count} problem clips")
+
+        if solution_count < TARGETS["solution"]:
+            gaps.append(f"{TARGETS['solution'] - solution_count} solution clips")
+
+        if result_count < TARGETS["result"]:
+            gaps.append(f"{TARGETS['result'] - result_count} result clips")
+
+        health_rows.append({
+            "category": category.title(),
+            "problem": problem_count,
+            "solution": solution_count,
+            "result": result_count,
+            "coverage": coverage,
+            "status": status,
+            "priority": priority,
+            "gaps": gaps,
+        })
+
+        for gap in gaps:
+            if "problem" in gap:
+                filming_list.append({
+                    "priority": priority,
+                    "category": category.title(),
+                    "shot": f"Film {gap}: dirty/annoying before shots",
+                })
+            elif "solution" in gap:
+                filming_list.append({
+                    "priority": priority,
+                    "category": category.title(),
+                    "shot": f"Film {gap}: product being used clearly",
+                })
+            elif "result" in gap:
+                filming_list.append({
+                    "priority": priority,
+                    "category": category.title(),
+                    "shot": f"Film {gap}: clean finished result shots",
+                })
+
+    priority_order = {"High": 0, "Medium": 1, "Low": 2}
+    health_rows.sort(key=lambda row: (priority_order[row["priority"]], row["category"]))
+    filming_list.sort(key=lambda item: priority_order[item["priority"]])
+
+    return health_rows, filming_list
 
 
 @app.route("/")
@@ -196,6 +289,19 @@ def create_single_edit_pack(post_number):
         plan=plan,
         days=days,
         message=f"Created edit pack for Post {post_number}. Copied {len(copied)} clip(s). Missing {len(missing)}.",
+    )
+
+
+@app.route("/health-check")
+def health_check():
+    clips = load_database()
+    health_rows, filming_list = build_health_check(clips)
+
+    return render_template(
+        "health_check.html",
+        health_rows=health_rows,
+        filming_list=filming_list,
+        targets=TARGETS,
     )
 
 
