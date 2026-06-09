@@ -32,6 +32,41 @@ TARGETS = {
     "result": 15,
 }
 
+IGNORED_HEALTH_CATEGORIES = {"", "unknown", "general", "product"}
+
+FILMING_SUGGESTIONS = {
+    "glass": [
+        "Dirty windscreen or side glass close-up",
+        "Finger swipe through smears",
+        "Glass cleaner being sprayed",
+        "Clean glass reveal in daylight",
+    ],
+    "interior": [
+        "Dirty door sill close-up",
+        "Dusty dashboard before shot",
+        "Interior cleaner wipe-down",
+        "Clean interior reveal",
+    ],
+    "wheels": [
+        "Brake dust close-up",
+        "Finger swipe through dirty wheel",
+        "Brush reaching behind spokes",
+        "Clean wheel reveal",
+    ],
+    "foam": [
+        "Dirty panel before foam",
+        "Foam covering the car",
+        "Foam runoff shot",
+        "Clean panel after rinse",
+    ],
+    "drying": [
+        "Water-heavy panel before drying",
+        "Single-pass towel drag",
+        "Water being absorbed close-up",
+        "Dry finished panel reveal",
+    ],
+}
+
 
 def load_database():
     if not os.path.exists(MASTER_DATABASE):
@@ -120,7 +155,7 @@ def parse_weekly_plan(plan_text):
 def build_health_check(clips):
     category_roles = defaultdict(lambda: Counter())
 
-    ignored_categories = {"", "unknown"}
+    ignored_categories = IGNORED_HEALTH_CATEGORIES
 
     for clip in clips:
         category = (clip.get("category") or "unknown").strip().lower()
