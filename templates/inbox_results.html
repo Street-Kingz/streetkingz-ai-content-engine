@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Inbox Analysis Results</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #0d0d0d;
+            color: #f5f5f5;
+            padding: 30px;
+        }
+
+        h1, h2 { color: #ffffff; }
+
+        .button {
+            display: inline-block;
+            background: #8A1316;
+            color: white;
+            padding: 12px 18px;
+            border-radius: 8px;
+            text-decoration: none;
+            margin-bottom: 20px;
+            margin-right: 10px;
+        }
+
+        .card {
+            background: #181818;
+            border: 1px solid #333;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .stats {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .stat {
+            background: #181818;
+            border: 1px solid #333;
+            border-radius: 12px;
+            padding: 18px;
+            min-width: 140px;
+        }
+
+        .number {
+            font-size: 32px;
+            font-weight: bold;
+        }
+
+        .filed { color: #7bd88f; font-weight: bold; }
+        .quarantined { color: #ffd166; font-weight: bold; }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 12px;
+        }
+
+        th, td {
+            border-bottom: 1px solid #333;
+            padding: 10px;
+            text-align: left;
+        }
+
+        th { color: #aaa; }
+
+        .muted { color: #aaa; }
+    </style>
+</head>
+<body>
+
+    <a class="button" href="/">Back to Dashboard</a>
+
+    <h1>Inbox Analysis Results</h1>
+
+    <div class="stats">
+        <div class="stat">
+            <div class="number">{{ filed_count }}</div>
+            <div>Filed</div>
+        </div>
+
+        <div class="stat">
+            <div class="number">{{ quarantined_count }}</div>
+            <div>Quarantined</div>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>Clip Results</h2>
+
+        {% if results %}
+            <table>
+                <tr>
+                    <th>Status</th>
+                    <th>Clip</th>
+                    <th>Category</th>
+                    <th>Role</th>
+                    <th>Confidence</th>
+                    <th>Reason / Destination</th>
+                </tr>
+
+                {% for item in results %}
+                <tr>
+                    <td class="{{ item.status }}">{{ item.status }}</td>
+                    <td>{{ item.original }}</td>
+
+                    {% if item.status == "filed" %}
+                        <td>{{ item.category }}</td>
+                        <td>{{ item.story_role }}</td>
+                        <td>{{ item.confidence }}/10</td>
+                        <td class="muted">{{ item.destination }}</td>
+                    {% else %}
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>{{ item.reason }}</td>
+                    {% endif %}
+                </tr>
+                {% endfor %}
+            </table>
+        {% else %}
+            <p>No clips found in Inbox.</p>
+        {% endif %}
+    </div>
+
+</body>
+</html>
+HTML

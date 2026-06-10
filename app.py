@@ -1,6 +1,7 @@
 import csv
 import os
 import re
+import subprocess
 from collections import Counter, defaultdict
 from flask import Flask, render_template, redirect, url_for
 
@@ -20,6 +21,8 @@ from create_edit_pack import (
     create_edit_pack,
     open_in_finder,
 )
+
+from analyse_inbox import run_inbox_analysis
 
 app = Flask(__name__)
 
@@ -154,7 +157,6 @@ def parse_weekly_plan(plan_text):
 
 def build_health_check(clips):
     category_roles = defaultdict(lambda: Counter())
-
     ignored_categories = IGNORED_HEALTH_CATEGORIES
 
     for clip in clips:
@@ -212,25 +214,24 @@ def build_health_check(clips):
             "gaps": gaps,
         })
 
+        suggestions = FILMING_SUGGESTIONS.get(category, [])
+
         for gap in gaps:
             if "problem" in gap:
-                filming_list.append({
-                    "priority": priority,
-                    "category": category.title(),
-                    "shot": f"Film {gap}: dirty/annoying before shots",
-                })
+                shot = suggestions[0] if suggestions else "Dirty/annoying before shot"
             elif "solution" in gap:
-                filming_list.append({
-                    "priority": priority,
-                    "category": category.title(),
-                    "shot": f"Film {gap}: product being used clearly",
-                })
+                shot = suggestions[2] if len(suggestions) > 2 else "Product being used clearly"
             elif "result" in gap:
-                filming_list.append({
-                    "priority": priority,
-                    "category": category.title(),
-                    "shot": f"Film {gap}: clean finished result shots",
-                })
+                shot = suggestions[-1] if suggestions else "Clean finished result shot"
+            else:
+                shot = "Useful missing clip"
+
+            filming_list.append({
+                "priority": priority,
+                "category": category.title(),
+                "shot": shot,
+                "gap": gap,
+            })
 
     priority_order = {"High": 0, "Medium": 1, "Low": 2}
     health_rows.sort(key=lambda row: (priority_order[row["priority"]], row["category"]))
@@ -337,6 +338,21 @@ def health_check():
         health_rows=health_rows,
         filming_list=filming_list,
         targets=TARGETS,
+    )
+
+
+@app.route("/analyse-inbox")
+def analyse_inbox():
+    results = run_inbox_analysis()
+
+    filed = [r for r in results if r["status"] == "filed"]
+    quarantined = [r for r in results if r["status"] == "quarantined"]
+
+    return render_template(
+        "inbox_results.html",
+        results=results,
+        filed_count=len(filed),
+        quarantined_count=len(quarantined),
     )
 
 
