@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+
+{% block title %}Street Kingz Business Dashboard{% endblock %}
+
+{% block content %}
+
+<h1>Street Kingz Business Dashboard</h1>
+
+<div class="card">
+    <form method="POST" enctype="multipart/form-data">
+        <label>TikTok Orders CSV</label><br>
+        <input type="file" name="orders_csv" accept=".csv" required><br>
+
+        <label>Ad Spend</label><br>
+        <input type="text" name="ad_spend" placeholder="82.34"><br>
+
+        <button type="submit">Calculate Profit</button>
+    </form>
+
+    {% if error %}
+        <p class="loss">{{ error }}</p>
+    {% endif %}
+</div>
+
+{% if result %}
+<div class="card">
+    <h2>Summary</h2>
+
+    <p>Orders: {{ result.order_count }}</p>
+    <p>Order Lines: {{ result.line_count }}</p>
+    <p>Revenue: £{{ "%.2f"|format(result.revenue) }}</p>
+    <p>Shipping Charged: £{{ "%.2f"|format(result.shipping_charged) }}</p>
+    <p>COGS: £{{ "%.2f"|format(result.cogs) }}</p>
+    <p>TikTok Fees: £{{ "%.2f"|format(result.tiktok_fees) }}</p>
+    <p>Postage Cost: £{{ "%.2f"|format(result.postage_cost) }}</p>
+    <p>Packaging Cost: £{{ "%.2f"|format(result.packaging_cost) }}</p>
+    <p>Ad Spend: £{{ "%.2f"|format(result.ad_spend) }}</p>
+
+    <h2 class="{{ 'profit' if result.net_profit >= 0 else 'loss' }}">
+        Net Profit: £{{ "%.2f"|format(result.net_profit) }}
+    </h2>
+</div>
+
+<div class="card">
+    <h2>Products Sold</h2>
+
+    <table>
+        <tr>
+            <th>SKU</th>
+            <th>Product</th>
+            <th>Variation</th>
+            <th>Qty</th>
+            <th>Revenue</th>
+            <th>COGS</th>
+            <th>Gross Profit</th>
+        </tr>
+
+        {% for row in result.product_rows %}
+        <tr>
+            <td>{{ row.sku }}</td>
+            <td>{{ row.product }}</td>
+            <td>{{ row.variation }}</td>
+            <td>{{ row.qty }}</td>
+            <td>£{{ "%.2f"|format(row.revenue) }}</td>
+            <td>£{{ "%.2f"|format(row.cogs) }}</td>
+            <td>£{{ "%.2f"|format(row.gross_profit) }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+
+{% if result.missing_cogs %}
+<div class="card">
+    <h2 class="loss">Missing COGS</h2>
+
+    {% for item in result.missing_cogs %}
+        <p>{{ item.sku }} - {{ item.product }} - {{ item.variation }}</p>
+    {% endfor %}
+</div>
+{% endif %}
+{% endif %}
+
+{% endblock %}

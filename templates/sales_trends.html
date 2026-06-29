@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+
+{% block title %}Sales Trends{% endblock %}
+
+{% block content %}
+
+<h1>Sales Trends</h1>
+<p class="muted">Daily business performance from saved TikTok orders.</p>
+
+<div class="card">
+    <a class="button" href="/sales-trends?period=7d">Last 7 Days</a>
+    <a class="button" href="/sales-trends?period=30d">Last 30 Days</a>
+    <a class="button" href="/sales-trends?period=all">All Time</a>
+</div>
+
+<div style="display:grid; grid-template-columns:repeat(4, 1fr); gap:18px;">
+    <div class="card">
+        <h3>Total Revenue</h3>
+        <h2>£{{ "%.2f"|format(trends.totals.revenue) }}</h2>
+    </div>
+
+    <div class="card">
+        <h3>Net Profit</h3>
+        <h2 class="{{ 'profit' if trends.totals.net_profit >= 0 else 'loss' }}">
+            £{{ "%.2f"|format(trends.totals.net_profit) }}
+        </h2>
+    </div>
+
+    <div class="card">
+        <h3>Orders</h3>
+        <h2>{{ trends.totals.orders }}</h2>
+    </div>
+
+    <div class="card">
+        <h3>Average Order Value</h3>
+        <h2>£{{ "%.2f"|format(trends.totals.average_order_value) }}</h2>
+    </div>
+</div>
+
+<div class="card">
+    <h2>Business Insight</h2>
+    <p>{{ trends.insight }}</p>
+</div>
+
+<div class="card">
+    <h2>
+        {% if period == "7d" %}
+            Last 7 Days
+        {% elif period == "30d" %}
+            Last 30 Days
+        {% else %}
+            All Time
+        {% endif %}
+    </h2>
+
+    <table>
+        <tr>
+            <th>Date</th>
+            <th>Orders</th>
+            <th>Revenue</th>
+            <th>Gross Profit</th>
+            <th>Ad Spend</th>
+            <th>Net Profit</th>
+            <th>AOV</th>
+        </tr>
+
+        {% for row in trends.rows %}
+        <tr>
+            <td>{{ row.order_date }}</td>
+            <td>{{ row.orders }}</td>
+            <td>£{{ "%.2f"|format(row.revenue) }}</td>
+            <td>£{{ "%.2f"|format(row.gross_profit) }}</td>
+            <td>£{{ "%.2f"|format(row.ad_spend) }}</td>
+            <td class="{{ 'profit' if row.net_profit >= 0 else 'loss' }}">
+                £{{ "%.2f"|format(row.net_profit) }}
+            </td>
+            <td>£{{ "%.2f"|format(row.average_order_value) }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+
+{% endblock %}

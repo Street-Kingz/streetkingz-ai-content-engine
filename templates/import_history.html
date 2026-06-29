@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+
+{% block title %}Import History{% endblock %}
+
+{% block content %}
+
+<h1>Import History</h1>
+<p class="muted">Imported order batches and saved ad spend entries from SQLite.</p>
+
+<div style="display:grid; grid-template-columns:repeat(4, 1fr); gap:18px;">
+    <div class="card">
+        <h3>Import Batches</h3>
+        <h2>{{ history.totals.batches }}</h2>
+    </div>
+
+    <div class="card">
+        <h3>Order Lines</h3>
+        <h2>{{ history.totals.line_count }}</h2>
+    </div>
+
+    <div class="card">
+        <h3>Unique Orders</h3>
+        <h2>{{ history.totals.order_count }}</h2>
+    </div>
+
+    <div class="card">
+        <h3>Saved Ad Spend</h3>
+        <h2>£{{ "%.2f"|format(history.totals.ad_spend) }}</h2>
+    </div>
+</div>
+
+<div class="card">
+    <h2>Imported Order Batches</h2>
+
+    <table>
+        <tr>
+            <th>Imported At</th>
+            <th>Order Lines</th>
+            <th>Unique Orders</th>
+            <th>Date Range</th>
+            <th>Revenue</th>
+            <th>COGS</th>
+            <th>Gross Profit</th>
+        </tr>
+
+        {% for row in history.batches %}
+        <tr>
+            <td>{{ row.imported_at }}</td>
+            <td>{{ row.line_count }}</td>
+            <td>{{ row.order_count }}</td>
+            <td>{{ row.date_from }} to {{ row.date_to }}</td>
+            <td>£{{ "%.2f"|format(row.revenue) }}</td>
+            <td>£{{ "%.2f"|format(row.cogs) }}</td>
+            <td>£{{ "%.2f"|format(row.gross_profit) }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+
+<div class="card">
+    <h2>Ad Spend Entries</h2>
+
+    <p>Entries: {{ history.totals.ad_spend_entries }}</p>
+
+    <table>
+        <tr>
+            <th>Spend Date</th>
+            <th>Ad Spend</th>
+        </tr>
+
+        {% for row in history.ad_spend_entries %}
+        <tr>
+            <td>{{ row.spend_date }}</td>
+            <td>£{{ "%.2f"|format(row.ad_spend) }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+
+{% endblock %}

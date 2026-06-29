@@ -8,3 +8,8 @@ Quarantine/
 Inbox/
 Inbox/
 Quarantine/
+data/
+*.db
+*.sqlite
+*.sqlite3
+data/

@@ -301,44 +301,40 @@ def run_inbox_analysis():
 
     videos = [
         file for file in sorted(INBOX_FOLDER.iterdir())
-        if file.is_file() and file.suffix in VIDEO_EXTENSIONS
+        if file.exists() and file.is_file() and file.suffix in VIDEO_EXTENSIONS
     ]
 
     if not videos:
         return []
 
-    print(f"Found {len(videos)} video(s) in Inbox.")
-    print("Starting Inbox analysis...\n")
-
     results = []
 
-    for index, video in enumerate(videos, start=1):
-        print(f"[{index}/{len(videos)}] Analysing {video.name}")
-
+    for video in videos:
         try:
             result = process_video(video)
             results.append(result)
 
-            if result["status"] == "filed":
-                print(f"Filed → {result['category']} / {result['story_role']}")
-            else:
-                print(f"Quarantined → {result['reason']}")
-
         except Exception as e:
-            result = quarantine(video, f"ERROR: {e}")
+            try:
+                result = quarantine(video, f"ERROR: {e}")
+            except Exception:
+                result = {
+                    "status": "quarantined",
+                    "original": video.name,
+                    "destination": "",
+                    "reason": f"ERROR: {e}",
+                }
+
             results.append(result)
-            print(f"Quarantined → ERROR: {e}")
-
-    filed = [r for r in results if r["status"] == "filed"]
-    quarantined = [r for r in results if r["status"] == "quarantined"]
-
-    print("\nDone.")
-    print("Summary:")
-    print(f"Filed: {len(filed)}")
-    print(f"Quarantined: {len(quarantined)}")
 
     return results
 
 
 if __name__ == "__main__":
-    run_inbox_analysis()
+    results = run_inbox_analysis()
+
+    filed = [r for r in results if r["status"] == "filed"]
+    quarantined = [r for r in results if r["status"] == "quarantined"]
+
+    print(f"Filed: {len(filed)}")
+    print(f"Quarantined: {len(quarantined)}")

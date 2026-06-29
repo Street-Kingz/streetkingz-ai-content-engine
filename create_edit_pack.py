@@ -43,7 +43,6 @@ def build_file_index(rows):
             continue
 
         full_path = Path(MASTER_CLIP_FOLDER) / relative_folder / filename
-
         key = filename.lower()
 
         if key not in index:
@@ -69,8 +68,6 @@ def extract_filenames_from_plan(plan_text):
         file = file.strip()
         file = file.replace("(", "").replace(")", "")
         file = file.replace("–", "-")
-
-        # Remove list numbering if it somehow gets captured
         file = re.sub(r"^\d+\.\s*", "", file).strip()
 
         if file not in cleaned:
@@ -88,10 +85,14 @@ def choose_match(filename, matches):
     return matches[0]
 
 
-def create_edit_pack(video_title, filenames, file_index, plan_text):
+def create_edit_pack(video_title, filenames, file_index, plan_text, output_root=None):
     safe_title = clean_filename(video_title)
 
-    output_folder = Path(OUTPUT_ROOT) / safe_title
+    if output_root:
+        output_folder = Path(output_root) / safe_title
+    else:
+        output_folder = Path(OUTPUT_ROOT) / safe_title
+
     output_folder.mkdir(parents=True, exist_ok=True)
 
     copied = []
@@ -99,7 +100,6 @@ def create_edit_pack(video_title, filenames, file_index, plan_text):
 
     for index, filename in enumerate(filenames, start=1):
         lookup_key = filename.lower()
-
         matches = file_index.get(lookup_key)
 
         if not matches:

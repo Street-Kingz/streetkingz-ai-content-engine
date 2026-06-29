@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block title %}Business Dashboard{% endblock %}
+
+{% block content %}
+
+<h1>Business Dashboard</h1>
+<p class="muted">Choose what part of Street Kingz you want to review or update.</p>
+
+<div style="display:grid; grid-template-columns:repeat(2, 1fr); gap:24px; margin-top:30px;">
+
+    <div class="card">
+        <h2>Business Overview</h2>
+        <p>Revenue, profit, orders, fees, ad spend and margins by period.</p>
+        <a class="button" href="/business-overview">Open Overview</a>
+    </div>
+
+    <div class="card">
+        <h2>Product Scoreboard</h2>
+        <p>See best sellers, highest profit products, margins and net contribution.</p>
+        <a class="button" href="/products">Open Product Scoreboard</a>
+    </div>
+
+    <div class="card">
+        <h2>Sales Trends</h2>
+        <p>Track revenue, orders, ad spend and net profit by day.</p>
+        <a class="button" href="/sales-trends">Open Sales Trends</a>
+    </div>
+
+    <div class="card">
+        <h2>Import Data</h2>
+        <p>Import TikTok orders into the database and update your business history.</p>
+        <a class="button" href="/business-import">Import Orders</a>
+    </div>
+
+    <div class="card">
+        <h2>Import History</h2>
+        <p>Review imported batches and saved ad spend entries.</p>
+        <a class="button" href="/import-history">Open Import History</a>
+    </div>
+
+    <div class="card">
+        <h2>Quick Profit Calculator</h2>
+        <p>Check one CSV without saving it to the database.</p>
+        <a class="button" href="/street-kingz-profit">Open Calculator</a>
+    </div>
+
+</div>
+
+{% endblock %}

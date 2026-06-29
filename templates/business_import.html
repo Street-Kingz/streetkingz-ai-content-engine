@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block title %}Import TikTok Orders{% endblock %}
+
+{% block content %}
+
+<h1>Import TikTok Orders</h1>
+<p class="muted">Upload any TikTok order export. The app saves new order lines and skips duplicates.</p>
+
+<div class="card">
+    <form method="POST" enctype="multipart/form-data">
+        <label>TikTok Orders CSV</label><br>
+        <input type="file" name="orders_csv" accept=".csv" required><br>
+
+        <label>Total Ad Spend For This Upload Period</label><br>
+        <input type="text" name="total_ad_spend" placeholder="82.34"><br>
+
+        <button type="submit">Import Orders</button>
+    </form>
+
+    {% if error %}
+        <p class="loss">{{ error }}</p>
+    {% endif %}
+</div>
+
+{% if result %}
+<div class="card">
+    <h2>Import Complete</h2>
+    <p>Imported rows: {{ result.imported_count }}</p>
+    <p>Skipped duplicates: {{ result.skipped_duplicates }}</p>
+    <p>Date range: {{ result.date_from }} to {{ result.date_to }}</p>
+    <p>Days in import: {{ result.date_count }}</p>
+    <p>Total ad spend saved: £{{ "%.2f"|format(result.total_ad_spend) }}</p>
+</div>
+
+{% if result.missing_cogs %}
+<div class="card">
+    <h2 class="loss">Missing COGS</h2>
+    {% for item in result.missing_cogs %}
+        <p>{{ item.sku }} - {{ item.product }} - {{ item.variation }}</p>
+    {% endfor %}
+</div>
+{% endif %}
+{% endif %}
+
+{% endblock %}

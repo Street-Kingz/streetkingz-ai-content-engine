@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block title %}Business overview{% endblock %}
+
+{% block content %}
+
+<h1>Business overview</h1>
+<p class="muted">Saved order history from your SQLite database.</p>
+
+<div class="card">
+    <a class="button" href="/business-overview?period=today">Today</a>
+    <a class="button" href="/business-overview?period=7d">Last 7 Days</a>
+    <a class="button" href="/business-overview?period=30d">Last 30 Days</a>
+    <a class="button" href="/business-overview?period=all">All Time</a>
+</div>
+
+<div class="card">
+    <h2>
+        {% if period == "today" %}
+            Today
+        {% elif period == "7d" %}
+            Last 7 Days
+        {% elif period == "30d" %}
+            Last 30 Days
+        {% else %}
+            All Time
+        {% endif %}
+    </h2>
+
+    <p>Orders: {{ summary.orders }}</p>
+    <p>Order Lines: {{ summary.lines }}</p>
+    <p>Revenue: £{{ "%.2f"|format(summary.revenue) }}</p>
+    <p>Average Order Value: £{{ "%.2f"|format(summary.average_order_value) }}</p>
+    <p>COGS: £{{ "%.2f"|format(summary.cogs) }}</p>
+    <p>TikTok Fees: £{{ "%.2f"|format(summary.tiktok_fees) }}</p>
+    <p>Postage Cost: £{{ "%.2f"|format(summary.postage_cost) }}</p>
+    <p>Packaging Cost: £{{ "%.2f"|format(summary.packaging_cost) }}</p>
+    <p>Ad Spend: £{{ "%.2f"|format(summary.ad_spend) }}</p>
+    <p>Profit Margin: {{ "%.1f"|format(summary.profit_margin) }}%</p>
+
+    <h2 class="{{ 'profit' if summary.net_profit >= 0 else 'loss' }}">
+        Net Profit: £{{ "%.2f"|format(summary.net_profit) }}
+    </h2>
+</div>
+
+{% endblock %}

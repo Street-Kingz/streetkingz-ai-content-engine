@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block title %}Business Debug{% endblock %}
+
+{% block content %}
+
+<h1>Business Debug</h1>
+
+<div class="card">
+    <h2>Imported Order Dates</h2>
+
+    <table>
+        <tr>
+            <th>Order Date</th>
+            <th>Lines</th>
+            <th>Orders</th>
+            <th>Revenue</th>
+        </tr>
+
+        {% for row in dates %}
+        <tr>
+            <td>{{ row.order_date }}</td>
+            <td>{{ row.lines }}</td>
+            <td>{{ row.orders }}</td>
+            <td>£{{ "%.2f"|format(row.revenue) }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+
+{% endblock %}

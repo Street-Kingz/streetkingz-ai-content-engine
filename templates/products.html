@@ -1,0 +1,142 @@
+{% extends "base.html" %}
+
+{% block title %}Product Scoreboard{% endblock %}
+
+{% block content %}
+
+<h1>Product Scoreboard</h1>
+<p class="muted">Rank products by units, revenue, profit, net contribution and margin.</p>
+
+<div class="card">
+    <a class="button" href="/products?period=today">Today</a>
+    <a class="button" href="/products?period=7d">Last 7 Days</a>
+    <a class="button" href="/products?period=30d">Last 30 Days</a>
+    <a class="button" href="/products?period=all">All Time</a>
+</div>
+
+<div style="display:grid; grid-template-columns:repeat(4, 1fr); gap:18px;">
+    <div class="card">
+        <h3>Highest Profit</h3>
+        {% if scoreboard.highest_profit %}
+        <h2>{{ scoreboard.highest_profit.product }}</h2>
+        <p>£{{ "%.2f"|format(scoreboard.highest_profit.gross_profit) }}</p>
+        {% endif %}
+    </div>
+
+    <div class="card">
+        <h3>Highest Margin</h3>
+        {% if scoreboard.highest_margin %}
+        <h2>{{ scoreboard.highest_margin.product }}</h2>
+        <p>{{ "%.1f"|format(scoreboard.highest_margin.margin) }}%</p>
+        {% endif %}
+    </div>
+
+    <div class="card">
+        <h3>Most Units Sold</h3>
+        {% if scoreboard.most_units %}
+        <h2>{{ scoreboard.most_units.product }}</h2>
+        <p>{{ scoreboard.most_units.units }} units</p>
+        {% endif %}
+    </div>
+
+    <div class="card">
+        <h3>Highest Revenue</h3>
+        {% if scoreboard.highest_revenue %}
+        <h2>{{ scoreboard.highest_revenue.product }}</h2>
+        <p>£{{ "%.2f"|format(scoreboard.highest_revenue.revenue) }}</p>
+        {% endif %}
+    </div>
+</div>
+
+<div class="card">
+    <h2>Business Insight</h2>
+    <p>{{ scoreboard.insight }}</p>
+</div>
+
+<div class="card">
+    <h2>
+        {% if period == "today" %}
+            Today
+        {% elif period == "7d" %}
+            Last 7 Days
+        {% elif period == "30d" %}
+            Last 30 Days
+        {% else %}
+            All Time
+        {% endif %}
+    </h2>
+
+    <p>Total Units: {{ scoreboard.total_units }}</p>
+    <p>Total Revenue: £{{ "%.2f"|format(scoreboard.total_revenue) }}</p>
+    <p>Total Gross Profit Before Fees/Ads: £{{ "%.2f"|format(scoreboard.total_profit) }}</p>
+
+    <table id="productsTable">
+        <tr>
+            <th onclick="sortTable(0)">Product</th>
+            <th onclick="sortTable(1)">Units</th>
+            <th onclick="sortTable(2)">Revenue</th>
+            <th onclick="sortTable(3)">% Sales</th>
+            <th onclick="sortTable(4)">Gross Profit</th>
+            <th onclick="sortTable(5)">Net Contribution</th>
+            <th onclick="sortTable(6)">Profit / Unit</th>
+            <th onclick="sortTable(7)">% Profit</th>
+            <th onclick="sortTable(8)">Margin</th>
+        </tr>
+
+        {% for row in scoreboard.rows %}
+        <tr>
+            <td>{{ row.product }}</td>
+            <td>{{ row.units }}</td>
+            <td data-value="{{ row.revenue }}">£{{ "%.2f"|format(row.revenue) }}</td>
+            <td data-value="{{ row.sales_percent }}">{{ "%.1f"|format(row.sales_percent) }}%</td>
+            <td data-value="{{ row.gross_profit }}">£{{ "%.2f"|format(row.gross_profit) }}</td>
+            <td data-value="{{ row.net_contribution }}">£{{ "%.2f"|format(row.net_contribution) }}</td>
+            <td data-value="{{ row.profit_per_unit }}">£{{ "%.2f"|format(row.profit_per_unit) }}</td>
+            <td data-value="{{ row.profit_percent }}">{{ "%.1f"|format(row.profit_percent) }}%</td>
+            <td data-value="{{ row.margin }}">
+                {% if row.margin >= 50 %}
+                    <span class="profit">{{ "%.1f"|format(row.margin) }}%</span>
+                {% elif row.margin >= 30 %}
+                    <span style="color:#facc15;">{{ "%.1f"|format(row.margin) }}%</span>
+                {% else %}
+                    <span class="loss">{{ "%.1f"|format(row.margin) }}%</span>
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+
+<script>
+let sortDirection = {};
+
+function sortTable(columnIndex) {
+    const table = document.getElementById("productsTable");
+    const rows = Array.from(table.rows).slice(1);
+    const direction = sortDirection[columnIndex] === "asc" ? "desc" : "asc";
+    sortDirection[columnIndex] = direction;
+
+    rows.sort((a, b) => {
+        let aCell = a.cells[columnIndex];
+        let bCell = b.cells[columnIndex];
+
+        let aValue = aCell.getAttribute("data-value") || aCell.innerText;
+        let bValue = bCell.getAttribute("data-value") || bCell.innerText;
+
+        let aNumber = parseFloat(aValue.toString().replace("£", "").replace("%", ""));
+        let bNumber = parseFloat(bValue.toString().replace("£", "").replace("%", ""));
+
+        if (!isNaN(aNumber) && !isNaN(bNumber)) {
+            return direction === "asc" ? aNumber - bNumber : bNumber - aNumber;
+        }
+
+        return direction === "asc"
+            ? aValue.localeCompare(bValue)
+            : bValue.localeCompare(aValue);
+    });
+
+    rows.forEach(row => table.appendChild(row));
+}
+</script>
+
+{% endblock %}

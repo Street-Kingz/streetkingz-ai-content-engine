@@ -1,9 +1,21 @@
 import csv
 import os
 import re
-import subprocess
+from pathlib import Path
+from datetime import datetime
 from collections import Counter, defaultdict
-from flask import Flask, render_template, redirect, url_for
+from flask import Flask, render_template, redirect, url_for, request
+
+from business_dashboard import (
+    money_to_float,
+    analyse_tiktok_orders,
+    import_tiktok_orders,
+    get_business_summary,
+    get_product_scoreboard,
+    get_sales_trends,
+    get_import_history,
+    get_imported_order_dates,
+)
 
 from batch_content_generator import (
     load_clips,
@@ -25,6 +37,7 @@ from create_edit_pack import (
 from analyse_inbox import run_inbox_analysis
 
 app = Flask(__name__)
+app.config["MAX_CONTENT_LENGTH"] = 20 * 1024 * 1024
 
 MASTER_DATABASE = CSV_FILE
 WEEKLY_PLAN_FILE = OUTPUT_FILE
@@ -241,6 +254,30 @@ def build_health_check(clips):
 
 
 @app.route("/")
+def home():
+    return render_template("home.html")
+
+@app.route("/business-debug")
+def business_debug():
+    dates = get_imported_order_dates()
+
+    return render_template(
+        "business_debug.html",
+        dates=dates,
+    )
+
+@app.route("/products")
+def products():
+    period = request.args.get("period", "all")
+    scoreboard = get_product_scoreboard(period)
+
+    return render_template(
+        "products.html",
+        scoreboard=scoreboard,
+        period=period,
+    )
+
+@app.route("/content-engine")
 def dashboard():
     clips = load_database()
 
@@ -261,16 +298,74 @@ def dashboard():
     )
 
 
-@app.route("/generate-weekly")
+@app.route("/street-kingz-profit", methods=["GET", "POST"])
+def street_kingz_profit():
+    result = None
+    error = None
+
+    if request.method == "POST":
+        uploaded_file = request.files.get("orders_csv")
+        ad_spend = money_to_float(request.form.get("ad_spend"))
+
+        if not uploaded_file or uploaded_file.filename == "":
+            error = "Upload a TikTok order CSV."
+        else:
+            try:
+                result = analyse_tiktok_orders(uploaded_file, ad_spend)
+            except Exception as exc:
+                error = f"Could not analyse CSV: {exc}"
+
+    return render_template(
+        "street_kingz_profit.html",
+        result=result,
+        error=error,
+    )
+
+@app.route("/business-import", methods=["GET", "POST"])
+def business_import():
+    result = None
+    error = None
+
+    if request.method == "POST":
+        uploaded_file = request.files.get("orders_csv")
+        total_ad_spend = money_to_float(request.form.get("total_ad_spend"))
+
+        if not uploaded_file or uploaded_file.filename == "":
+            error = "Upload a TikTok order CSV."
+        else:
+            try:
+                result = import_tiktok_orders(uploaded_file, total_ad_spend)
+            except Exception as exc:
+                error = f"Could not import CSV: {exc}"
+
+    return render_template(
+        "business_import.html",
+        result=result,
+        error=error,
+    )
+
+@app.route("/generate-weekly", methods=["GET", "POST"])
 def generate_weekly():
+    if request.method == "GET":
+        return render_template("campaign_brief.html")
+
     clips = load_clips(CSV_FILE)
     voice_library = load_voice_library(VOICE_LIBRARY_FILE)
+
+    primary_product = request.form.get("primary_product", "").strip()
+    secondary_product = request.form.get("secondary_product", "").strip()
+    weekly_focus = request.form.get("weekly_focus", "").strip()
+    focus_strength = request.form.get("focus_strength", "Light").strip() or "Light"
 
     result = generate_batch_plan(
         video_count=21,
         topics=["wheels", "drying", "foam", "glass", "interior"],
         clips=clips,
         voice_library=voice_library,
+        primary_product=primary_product,
+        secondary_product=secondary_product,
+        weekly_focus=weekly_focus,
+        focus_strength=focus_strength,
     )
 
     with open(WEEKLY_PLAN_FILE, "w", encoding="utf-8") as file:
@@ -292,7 +387,7 @@ def weekly_plan():
     )
 
 
-@app.route("/create-edit-pack/<int:post_number>")
+@app.route("/create-edit-pack/<int:post_number>", methods=["POST"])
 def create_single_edit_pack(post_number):
     plan = read_weekly_plan() or ""
     days, videos_by_post = parse_weekly_plan(plan)
@@ -328,6 +423,61 @@ def create_single_edit_pack(post_number):
     )
 
 
+@app.route("/create-all-edit-packs", methods=["POST"])
+def create_all_edit_packs():
+    plan = read_weekly_plan() or ""
+    days, videos_by_post = parse_weekly_plan(plan)
+
+    if not videos_by_post:
+        return render_template(
+            "weekly_plan.html",
+            plan=plan,
+            days=days,
+            message="No weekly plan videos found.",
+        )
+
+    rows = load_edit_pack_database()
+    file_index = build_file_index(rows)
+
+    timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M")
+    weekly_folder = Path("Edit Packs") / f"Weekly Plan - {timestamp}"
+
+    created = 0
+    total_copied = 0
+    total_missing = 0
+
+    for post_number in sorted(videos_by_post.keys()):
+        video = videos_by_post[post_number]
+        filenames = extract_filenames_from_plan(video["clip_sequence"])
+
+        day_folder = weekly_folder / f"Day {video['day']}"
+
+        _, copied, missing = create_edit_pack(
+            video_title=f"Video {video['post_number']} - {video['title']}",
+            filenames=filenames,
+            file_index=file_index,
+            plan_text=video["full_text"],
+            output_root=day_folder,
+        )
+
+        created += 1
+        total_copied += len(copied)
+        total_missing += len(missing)
+
+    open_in_finder(weekly_folder)
+
+    return render_template(
+        "weekly_plan.html",
+        plan=plan,
+        days=days,
+        message=(
+            f"Created {created} edit packs. "
+            f"Copied {total_copied} clip(s). "
+            f"Missing {total_missing}."
+        ),
+    )
+
+
 @app.route("/health-check")
 def health_check():
     clips = load_database()
@@ -341,7 +491,7 @@ def health_check():
     )
 
 
-@app.route("/analyse-inbox")
+@app.route("/analyse-inbox", methods=["POST"])
 def analyse_inbox():
     results = run_inbox_analysis()
 
@@ -355,6 +505,40 @@ def analyse_inbox():
         quarantined_count=len(quarantined),
     )
 
+@app.route("/business-overview")
+def business_overview():
+    period = request.args.get("period", "all")
+    summary = get_business_summary(period)
+
+    return render_template(
+        "business_overview.html",
+        summary=summary,
+        period=period,
+    )
+
+@app.route("/sales-trends")
+def sales_trends():
+    period = request.args.get("period", "30d")
+    trends = get_sales_trends(period)
+
+    return render_template(
+        "sales_trends.html",
+        trends=trends,
+        period=period,
+    )
+
+@app.route("/import-history")
+def import_history():
+    history = get_import_history()
+
+    return render_template(
+        "import_history.html",
+        history=history,
+    )
+
+@app.route("/business-dashboard")
+def business_dashboard():
+    return render_template("business_dashboard.html")
 
 if __name__ == "__main__":
     app.run(debug=True)
