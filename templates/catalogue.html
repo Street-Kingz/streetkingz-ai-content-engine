@@ -1,0 +1,106 @@
+{% extends "base.html" %}
+
+{% block title %}Product Catalogue{% endblock %}
+
+{% block content %}
+
+<h1>Product Catalogue</h1>
+<p class="muted">Structured product data for Business Dashboard reporting and future AI support.</p>
+
+<div class="card">
+    <h2>{{ "Edit Product" if edit_product else "Add Product" }}</h2>
+
+    {% if error %}
+        <p class="loss">{{ error }}</p>
+    {% endif %}
+
+    {% if message %}
+        <p class="profit">{{ message }}</p>
+    {% endif %}
+
+    <form method="POST">
+        <label>SKU</label><br>
+        <input name="sku" value="{{ edit_product.sku if edit_product else '' }}" required><br>
+
+        <label>Product Name</label><br>
+        <input name="product_name" value="{{ edit_product.product_name if edit_product else '' }}"><br>
+
+        <label>Clean Name</label><br>
+        <input name="clean_name" value="{{ edit_product.clean_name if edit_product else '' }}"><br>
+
+        <label>Category</label><br>
+        <input name="category" value="{{ edit_product.category if edit_product else '' }}"><br>
+
+        <label>Selling Price</label><br>
+        <input name="selling_price" value="{{ edit_product.selling_price if edit_product else '' }}"><br>
+
+        <label>COGS</label><br>
+        <input name="cogs" value="{{ edit_product.cogs if edit_product else '' }}"><br>
+
+        <label>Current Stock</label><br>
+        <input name="current_stock" value="{{ edit_product.current_stock if edit_product else '' }}"><br>
+
+        <label>Content Priority</label><br>
+        <input name="content_priority" value="{{ edit_product.content_priority if edit_product else '' }}"><br>
+
+        <label>
+            <input type="checkbox" name="is_bundle" {% if edit_product and edit_product.is_bundle %}checked{% endif %}>
+            Bundle
+        </label><br>
+
+        <label>
+            <input type="checkbox" name="is_hero_product" {% if edit_product and edit_product.is_hero_product %}checked{% endif %}>
+            Hero Product
+        </label><br>
+
+        <label>Notes</label><br>
+        <textarea name="notes" rows="4" style="width:100%;">{{ edit_product.notes if edit_product else '' }}</textarea><br>
+
+        <button type="submit">Save Product</button>
+        {% if edit_product %}
+            <a class="button" href="/catalogue">Cancel Edit</a>
+        {% endif %}
+    </form>
+</div>
+
+<div class="card">
+    <h2>Catalogue Products</h2>
+
+    <table>
+        <tr>
+            <th>SKU</th>
+            <th>Product</th>
+            <th>Clean Name</th>
+            <th>Category</th>
+            <th>Selling Price</th>
+            <th>COGS</th>
+            <th>Gross Margin</th>
+            <th>Stock</th>
+            <th>Bundle</th>
+            <th>Hero</th>
+            <th>Priority</th>
+            <th>Notes</th>
+            <th>Edit</th>
+        </tr>
+
+        {% for product in products %}
+        <tr>
+            <td>{{ product.sku }}</td>
+            <td>{{ product.product_name }}</td>
+            <td>{{ product.clean_name }}</td>
+            <td>{{ product.category }}</td>
+            <td>£{{ "%.2f"|format(product.selling_price) }}</td>
+            <td>£{{ "%.2f"|format(product.cogs) }}</td>
+            <td>{{ "%.1f"|format(product.gross_margin) }}%</td>
+            <td>{{ product.current_stock }}</td>
+            <td>{{ "Yes" if product.is_bundle else "No" }}</td>
+            <td>{{ "Yes" if product.is_hero_product else "No" }}</td>
+            <td>{{ product.content_priority }}</td>
+            <td>{{ product.notes }}</td>
+            <td><a href="/catalogue?edit_sku={{ product.sku|urlencode }}">Edit</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+
+{% endblock %}

@@ -98,6 +98,23 @@ def init_database():
         )
     """)
 
+    cursor.execute("""
+        CREATE TABLE IF NOT EXISTS product_catalogue (
+            sku TEXT PRIMARY KEY,
+            product_name TEXT,
+            clean_name TEXT,
+            category TEXT,
+            selling_price REAL,
+            cogs REAL,
+            gross_margin REAL,
+            current_stock INTEGER,
+            is_bundle INTEGER,
+            is_hero_product INTEGER,
+            content_priority INTEGER,
+            notes TEXT
+        )
+    """)
+
     connection.commit()
     connection.close()
 
@@ -125,6 +142,10 @@ def safe_int(value, fallback=1):
         return fallback
 
 
+def checkbox_to_int(value):
+    return 1 if value in ["1", "on", "true", "yes"] else 0
+
+
 def validate_tiktok_order_headers(fieldnames, require_date=False):
     headers = set(fieldnames or [])
     missing = [
@@ -140,6 +161,51 @@ def validate_tiktok_order_headers(fieldnames, require_date=False):
             "TikTok Orders CSV is missing required column(s): "
             + ", ".join(missing)
         )
+
+
+def get_catalogue_unit_cogs(sku, product_name):
+    init_database()
+    connection = get_db_connection()
+    cursor = connection.cursor()
+
+    sku = (sku or "").strip()
+    product_name = (product_name or "").strip()
+
+    row = None
+
+    if sku:
+        cursor.execute("""
+            SELECT cogs
+            FROM product_catalogue
+            WHERE sku = ?
+              AND cogs > 0
+            LIMIT 1
+        """, (sku,))
+        row = cursor.fetchone()
+
+    if not row and product_name:
+        product_key = product_name.lower()
+        cursor.execute("""
+            SELECT cogs
+            FROM product_catalogue
+            WHERE (
+                lower(product_name) = ?
+                OR lower(clean_name) = ?
+            )
+              AND cogs > 0
+            LIMIT 1
+        """, (
+            product_key,
+            product_key,
+        ))
+        row = cursor.fetchone()
+
+    connection.close()
+
+    if row:
+        return row["cogs"]
+
+    return None
 
 
 def get_order_date(row):
@@ -174,6 +240,10 @@ def get_product_cogs(row):
     sku = (row.get("Seller SKU") or "").strip()
     product_name = (row.get("Product Name") or "").lower()
     quantity = safe_int(row.get("Quantity"), 1)
+    catalogue_cogs = get_catalogue_unit_cogs(sku, product_name)
+
+    if catalogue_cogs is not None:
+        return catalogue_cogs * quantity
 
     if sku in SK_COGS:
         return SK_COGS[sku] * quantity
@@ -183,6 +253,123 @@ def get_product_cogs(row):
             return cogs * quantity
 
     return 0.0
+
+
+def get_catalogue_products():
+    init_database()
+    connection = get_db_connection()
+    cursor = connection.cursor()
+
+    cursor.execute("""
+        SELECT *
+        FROM product_catalogue
+        ORDER BY is_hero_product DESC, content_priority DESC, clean_name, sku
+    """)
+    products = [dict(row) for row in cursor.fetchall()]
+    connection.close()
+
+    return products
+
+
+def get_catalogue_product(sku):
+    init_database()
+    connection = get_db_connection()
+    cursor = connection.cursor()
+
+    cursor.execute("""
+        SELECT *
+        FROM product_catalogue
+        WHERE sku = ?
+    """, ((sku or "").strip(),))
+    row = cursor.fetchone()
+    connection.close()
+
+    if row:
+        return dict(row)
+
+    return None
+
+
+def save_catalogue_product(form):
+    sku = (form.get("sku") or "").strip()
+
+    if not sku:
+        raise ValueError("SKU is required.")
+
+    selling_price = money_to_float(form.get("selling_price"))
+    cogs = money_to_float(form.get("cogs"))
+    gross_margin = 0.0
+
+    if selling_price > 0:
+        gross_margin = ((selling_price - cogs) / selling_price) * 100
+
+    product = {
+        "sku": sku,
+        "product_name": (form.get("product_name") or "").strip(),
+        "clean_name": (form.get("clean_name") or "").strip(),
+        "category": (form.get("category") or "").strip(),
+        "selling_price": selling_price,
+        "cogs": cogs,
+        "gross_margin": gross_margin,
+        "current_stock": safe_int(form.get("current_stock"), 0),
+        "is_bundle": checkbox_to_int(form.get("is_bundle")),
+        "is_hero_product": checkbox_to_int(form.get("is_hero_product")),
+        "content_priority": safe_int(form.get("content_priority"), 0),
+        "notes": (form.get("notes") or "").strip(),
+    }
+
+    init_database()
+    connection = get_db_connection()
+    cursor = connection.cursor()
+
+    cursor.execute("""
+        INSERT INTO product_catalogue (
+            sku,
+            product_name,
+            clean_name,
+            category,
+            selling_price,
+            cogs,
+            gross_margin,
+            current_stock,
+            is_bundle,
+            is_hero_product,
+            content_priority,
+            notes
+        )
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+        ON CONFLICT(sku)
+        DO UPDATE SET
+            product_name = excluded.product_name,
+            clean_name = excluded.clean_name,
+            category = excluded.category,
+            selling_price = excluded.selling_price,
+            cogs = excluded.cogs,
+            gross_margin = excluded.gross_margin,
+            current_stock = excluded.current_stock,
+            is_bundle = excluded.is_bundle,
+            is_hero_product = excluded.is_hero_product,
+            content_priority = excluded.content_priority,
+            notes = excluded.notes
+    """, (
+        product["sku"],
+        product["product_name"],
+        product["clean_name"],
+        product["category"],
+        product["selling_price"],
+        product["cogs"],
+        product["gross_margin"],
+        product["current_stock"],
+        product["is_bundle"],
+        product["is_hero_product"],
+        product["content_priority"],
+        product["notes"],
+    ))
+
+    connection.commit()
+    connection.close()
+
+    return product
 
 
 def analyse_tiktok_orders(file, ad_spend):

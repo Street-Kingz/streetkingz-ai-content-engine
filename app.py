@@ -15,6 +15,9 @@ from business_dashboard import (
     get_sales_trends,
     get_import_history,
     get_business_briefing,
+    get_catalogue_products,
+    get_catalogue_product,
+    save_catalogue_product,
     get_imported_order_dates,
 )
 
@@ -544,6 +547,30 @@ def business_briefing():
     return render_template(
         "business_briefing.html",
         briefing=briefing,
+    )
+
+@app.route("/catalogue", methods=["GET", "POST"])
+def catalogue():
+    error = None
+    message = None
+
+    if request.method == "POST":
+        try:
+            saved_product = save_catalogue_product(request.form)
+            message = f"Saved {saved_product['sku']}."
+        except Exception as exc:
+            error = f"Could not save product: {exc}"
+
+    edit_sku = request.args.get("edit_sku", "")
+    edit_product = get_catalogue_product(edit_sku) if edit_sku else None
+    products = get_catalogue_products()
+
+    return render_template(
+        "catalogue.html",
+        products=products,
+        edit_product=edit_product,
+        error=error,
+        message=message,
     )
 
 @app.route("/business-dashboard")
