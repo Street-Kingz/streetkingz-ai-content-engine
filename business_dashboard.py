@@ -737,6 +737,201 @@ def get_import_history():
         "totals": totals,
     }
 
+def get_business_briefing_summary(order_where_clause="", ad_where_clause=""):
+    connection = get_db_connection()
+    cursor = connection.cursor()
+
+    cursor.execute(f"""
+        SELECT
+            COUNT(DISTINCT order_id) AS orders,
+            COALESCE(SUM(revenue), 0) AS revenue,
+            COALESCE(SUM(shipping_charged), 0) AS shipping_charged,
+            COALESCE(SUM(cogs), 0) AS cogs
+        FROM order_lines
+        {order_where_clause}
+    """)
+    totals = dict(cursor.fetchone())
+
+    cursor.execute(f"""
+        SELECT COALESCE(SUM(ad_spend), 0) AS ad_spend
+        FROM ad_spend
+        {ad_where_clause}
+    """)
+    ad_spend = cursor.fetchone()["ad_spend"]
+    connection.close()
+
+    tiktok_fees = totals["revenue"] * TIKTOK_FEE_RATE
+    postage_cost = totals["orders"] * POSTAGE_COST_PER_ORDER
+    packaging_cost = totals["orders"] * PACKAGING_PER_ORDER
+
+    net_profit = (
+        totals["revenue"]
+        + totals["shipping_charged"]
+        - totals["cogs"]
+        - tiktok_fees
+        - postage_cost
+        - packaging_cost
+        - ad_spend
+    )
+
+    average_order_value = 0.0
+    if totals["orders"] > 0:
+        average_order_value = totals["revenue"] / totals["orders"]
+
+    return {
+        "orders": totals["orders"],
+        "revenue": totals["revenue"],
+        "net_profit": net_profit,
+        "average_order_value": average_order_value,
+    }
+
+
+def format_change(current, previous, label):
+    if previous is None:
+        return f"{label} comparison is not available for all-time data."
+
+    if previous == 0 and current == 0:
+        return f"{label} is flat at zero versus the previous matching period."
+
+    if previous == 0:
+        return f"{label} is up from zero in the previous matching period."
+
+    change = ((current - previous) / abs(previous)) * 100
+    direction = "up" if change >= 0 else "down"
+
+    return f"{label} is {direction} {abs(change):.1f}% versus the previous matching period."
+
+
+def get_briefing_period_clauses(period):
+    if period == "7d":
+        return {
+            "current_order_where": "WHERE order_date >= date('now', '-6 days', 'localtime')",
+            "current_ad_where": "WHERE spend_date >= date('now', '-6 days', 'localtime')",
+            "previous_order_where": "WHERE order_date >= date('now', '-13 days', 'localtime') AND order_date < date('now', '-6 days', 'localtime')",
+            "previous_ad_where": "WHERE spend_date >= date('now', '-13 days', 'localtime') AND spend_date < date('now', '-6 days', 'localtime')",
+        }
+
+    if period == "30d":
+        return {
+            "current_order_where": "WHERE order_date >= date('now', '-29 days', 'localtime')",
+            "current_ad_where": "WHERE spend_date >= date('now', '-29 days', 'localtime')",
+            "previous_order_where": "WHERE order_date >= date('now', '-59 days', 'localtime') AND order_date < date('now', '-29 days', 'localtime')",
+            "previous_ad_where": "WHERE spend_date >= date('now', '-59 days', 'localtime') AND spend_date < date('now', '-29 days', 'localtime')",
+        }
+
+    return {
+        "current_order_where": "",
+        "current_ad_where": "",
+        "previous_order_where": None,
+        "previous_ad_where": None,
+    }
+
+
+def build_briefing_action(current, previous, best_product, weak_margin_product):
+    profit_improving = (
+        previous is not None
+        and current["net_profit"] > previous["net_profit"]
+    )
+
+    if current["net_profit"] < 0:
+        return "Reduce ad spend or pause weak campaigns until net profit is back above zero."
+
+    if weak_margin_product and weak_margin_product["margin"] < 30:
+        return f"Investigate {weak_margin_product['product']} because its margin is weak."
+
+    if best_product:
+        if current["net_profit"] > 0 and profit_improving:
+            return "Keep the current strategy because profit is positive and improving."
+
+        return f"Increase content and sales focus on {best_product['product']} because it drove the most gross profit."
+
+    return "Keep current strategy until more imported order data is available."
+
+
+def get_business_briefing():
+    init_database()
+    periods = [
+        ("7d", "Last 7 Days"),
+        ("30d", "Last 30 Days"),
+        ("all", "All Time"),
+    ]
+    briefing_periods = []
+
+    for period, label in periods:
+        clauses = get_briefing_period_clauses(period)
+        current = get_business_briefing_summary(
+            clauses["current_order_where"],
+            clauses["current_ad_where"],
+        )
+
+        previous = None
+        if clauses["previous_order_where"] is not None:
+            previous = get_business_briefing_summary(
+                clauses["previous_order_where"],
+                clauses["previous_ad_where"],
+            )
+
+        scoreboard = get_product_scoreboard(period)
+        product_rows = [
+            row for row in scoreboard["rows"]
+            if row["revenue"] > 0
+        ]
+        best_product = scoreboard["highest_profit"]
+        weak_margin_product = min(
+            product_rows,
+            key=lambda row: row["margin"],
+            default=None,
+        )
+
+        insights = [
+            format_change(
+                current["revenue"],
+                previous["revenue"] if previous else None,
+                "Revenue",
+            ),
+            format_change(
+                current["net_profit"],
+                previous["net_profit"] if previous else None,
+                "Net profit",
+            ),
+        ]
+
+        if best_product:
+            insights.append(
+                f"{best_product['product']} drove the most gross profit at £{best_product['gross_profit']:.2f}."
+            )
+        else:
+            insights.append("No best profit product is available for this period yet.")
+
+        if weak_margin_product and weak_margin_product["margin"] < 30:
+            insights.append(
+                f"{weak_margin_product['product']} has a weak margin at {weak_margin_product['margin']:.1f}%."
+            )
+        elif weak_margin_product:
+            insights.append("No product has a margin below the weak-margin threshold.")
+        else:
+            insights.append("No product margin data is available for this period yet.")
+
+        briefing_periods.append({
+            "period": period,
+            "label": label,
+            "current": current,
+            "previous": previous,
+            "best_product": best_product,
+            "weak_margin_product": weak_margin_product,
+            "insights": insights,
+            "recommended_action": build_briefing_action(
+                current,
+                previous,
+                best_product,
+                weak_margin_product,
+            ),
+        })
+
+    return {
+        "periods": briefing_periods,
+    }
+
 def get_imported_order_dates():
     init_database()
     connection = get_db_connection()

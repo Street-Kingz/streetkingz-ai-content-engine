@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+
+{% block title %}Business Briefing{% endblock %}
+
+{% block content %}
+
+<h1>Business Briefing</h1>
+<p class="muted">Rules-based business insights from your saved order history.</p>
+
+{% for item in briefing.periods %}
+<div class="card">
+    <h2>{{ item.label }}</h2>
+
+    <div style="display:grid; grid-template-columns:repeat(4, 1fr); gap:18px; margin-bottom:22px;">
+        <div style="background:#0d0d0d; border:1px solid #333; padding:18px; border-radius:8px;">
+            <h3>Revenue</h3>
+            <h2>£{{ "%.2f"|format(item.current.revenue) }}</h2>
+        </div>
+
+        <div style="background:#0d0d0d; border:1px solid #333; padding:18px; border-radius:8px;">
+            <h3>Net Profit</h3>
+            <h2 class="{{ 'profit' if item.current.net_profit >= 0 else 'loss' }}">
+                £{{ "%.2f"|format(item.current.net_profit) }}
+            </h2>
+        </div>
+
+        <div style="background:#0d0d0d; border:1px solid #333; padding:18px; border-radius:8px;">
+            <h3>Orders</h3>
+            <h2>{{ item.current.orders }}</h2>
+        </div>
+
+        <div style="background:#0d0d0d; border:1px solid #333; padding:18px; border-radius:8px;">
+            <h3>Average Order Value</h3>
+            <h2>£{{ "%.2f"|format(item.current.average_order_value) }}</h2>
+        </div>
+    </div>
+
+    <h3>Insights</h3>
+    {% for insight in item.insights %}
+        <p>{{ insight }}</p>
+    {% endfor %}
+
+    <h3>Recommended Action</h3>
+    <p>{{ item.recommended_action }}</p>
+
+    <table>
+        <tr>
+            <th>Signal</th>
+            <th>Product</th>
+            <th>Value</th>
+        </tr>
+        <tr>
+            <td>Best Product By Gross Profit</td>
+            {% if item.best_product %}
+                <td>{{ item.best_product.product }}</td>
+                <td>£{{ "%.2f"|format(item.best_product.gross_profit) }}</td>
+            {% else %}
+                <td>No product data</td>
+                <td>£0.00</td>
+            {% endif %}
+        </tr>
+        <tr>
+            <td>Worst Margin Product</td>
+            {% if item.weak_margin_product %}
+                <td>{{ item.weak_margin_product.product }}</td>
+                <td>{{ "%.1f"|format(item.weak_margin_product.margin) }}%</td>
+            {% else %}
+                <td>No product data</td>
+                <td>0.0%</td>
+            {% endif %}
+        </tr>
+    </table>
+</div>
+{% endfor %}
+
+{% endblock %}

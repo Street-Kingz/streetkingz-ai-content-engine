@@ -14,6 +14,7 @@ from business_dashboard import (
     get_product_scoreboard,
     get_sales_trends,
     get_import_history,
+    get_business_briefing,
     get_imported_order_dates,
 )
 
@@ -534,6 +535,15 @@ def import_history():
     return render_template(
         "import_history.html",
         history=history,
+    )
+
+@app.route("/business-briefing")
+def business_briefing():
+    briefing = get_business_briefing()
+
+    return render_template(
+        "business_briefing.html",
+        briefing=briefing,
     )
 
 @app.route("/business-dashboard")
